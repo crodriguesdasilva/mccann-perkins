@@ -1,0 +1,1748 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>McCann Perkins – Deep-Tech Startup Studio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="McCann Perkins is a deep-tech startup studio that co-founds resilient companies in cybersecurity, quantum, sovereign infrastructure, and sustainable AI." />
+
+  <!-- SEO & Social -->
+  <meta name="keywords" content="deep-tech, startup studio, cybersecurity, quantum computing, sustainable AI, venture building" />
+  <meta name="author" content="McCann Perkins" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="McCann Perkins – Deep-Tech Startup Studio" />
+  <meta property="og:description" content="Together, we build what capital alone cannot create. A startup studio for deep-tech and sovereign innovation." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.mccannperkins.com" />
+  <meta property="og:image" content="https://www.mccannperkins.com/og-image.jpg" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="McCann Perkins – Deep-Tech Startup Studio" />
+  <meta name="twitter:description" content="Together, we build what capital alone cannot create." />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png" />
+
+  <!-- Preconnect for performance -->
+  <link rel="preconnect" href="https://images.unsplash.com" />
+
+  <style>
+    /* ============================================================
+       VARIABLES & RESET
+    ============================================================ */
+    :root {
+      --blue: #0057ff;
+      --blue-dark: #0034a1;
+      --blue-light: #3b82f6;
+      --yellow: #ffd53b;
+      --yellow-dark: #fbbf24;
+      --bg: #f5f7fb;
+      --text: #111827;
+      --muted: #6b7280;
+      --card: #ffffff;
+      --max-width: 1100px;
+
+      /* Shadows */
+      --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07);
+      --shadow-lg: 0 10px 24px rgba(0, 0, 0, 0.08);
+      --shadow-xl: 0 18px 40px rgba(15, 23, 42, 0.12);
+
+      /* Transitions */
+      --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+      --transition-base: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+      --transition-slow: 350ms cubic-bezier(0.4, 0, 0.2, 1);
+
+      /* Spacing */
+      --header-height: 72px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: var(--header-height);
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: color var(--transition-fast);
+    }
+
+    button {
+      font-family: inherit;
+      cursor: pointer;
+      transition: all var(--transition-base);
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    /* ============================================================
+       HEADER & NAVIGATION
+    ============================================================ */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(245, 247, 251, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+      transition: all var(--transition-base);
+    }
+
+    header.scrolled {
+      box-shadow: var(--shadow-md);
+      background: rgba(245, 247, 251, 0.98);
+    }
+
+    .nav {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0.7rem 1.25rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      z-index: 1001;
+    }
+
+    .logo-img {
+      height: 58px;
+      width: auto;
+      display: block;
+      transition: transform var(--transition-base);
+    }
+
+    .logo-img:hover {
+      transform: scale(1.02);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.25rem;
+      font-size: 0.9rem;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-weight: 500;
+      position: relative;
+      padding: 0.5rem 0;
+      transition: color var(--transition-fast);
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--blue);
+      transition: width var(--transition-base);
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--blue);
+    }
+
+    .nav-links a.active::after {
+      width: 100%;
+    }
+
+    .btn-nav {
+      padding: 0.55rem 1rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.6);
+      font-size: 0.85rem;
+      background: white;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .btn-nav:hover {
+      border-color: var(--blue);
+      color: var(--blue);
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .btn-nav:active {
+      transform: translateY(0);
+    }
+
+    /* Mobile Menu Toggle */
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: transparent;
+      border: none;
+      padding: 0.5rem;
+      z-index: 1001;
+    }
+
+    .menu-toggle span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--text);
+      transition: all var(--transition-base);
+      border-radius: 2px;
+    }
+
+    .menu-toggle.active span:nth-child(1) {
+      transform: rotate(45deg) translate(6px, 6px);
+    }
+
+    .menu-toggle.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .menu-toggle.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(6px, -6px);
+    }
+
+    /* ============================================================
+       LAYOUT
+    ============================================================ */
+
+    main {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 2rem 1.25rem 3rem;
+    }
+
+    section {
+      padding: 3rem 0;
+      scroll-margin-top: calc(var(--header-height) + 20px);
+    }
+
+    .section-label {
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      letter-spacing: 0.14em;
+      color: var(--blue);
+      margin-bottom: 0.5rem;
+      font-weight: 700;
+    }
+
+    .section-title {
+      font-size: 1.9rem;
+      margin-bottom: 1rem;
+      letter-spacing: -0.02em;
+    }
+
+    .section-intro {
+      max-width: 640px;
+      color: var(--muted);
+      margin-bottom: 1.7rem;
+      font-size: 0.98rem;
+    }
+
+    /* Fade-in animations */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .fade-in-delay-1 { transition-delay: 0.1s; }
+    .fade-in-delay-2 { transition-delay: 0.2s; }
+    .fade-in-delay-3 { transition-delay: 0.3s; }
+    .fade-in-delay-4 { transition-delay: 0.4s; }
+
+    /* ============================================================
+       HERO SECTION
+    ============================================================ */
+
+    .hero-section {
+      border-radius: 1.4rem;
+      overflow: hidden;
+      margin-bottom: 2.5rem;
+    }
+
+    .hero {
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 2.5rem;
+      padding: 3rem 2.2rem;
+      min-height: 420px;
+
+      background-image: url("https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1600&q=80");
+      background-size: cover;
+      background-position: center;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to right,
+        rgba(0,0,0,0.55),
+        rgba(0,0,0,0.25),
+        rgba(0,0,0,0.08)
+      );
+      z-index: 1;
+    }
+
+    .hero > * {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-kicker {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      font-weight: 700;
+      color: var(--yellow);
+      margin-bottom: 1rem;
+      animation: slideInLeft 0.6s ease-out;
+    }
+
+    .hero-title {
+      font-size: 2.5rem;
+      line-height: 1.15;
+      color: white;
+      margin-bottom: 1rem;
+      letter-spacing: -0.03em;
+      text-shadow: 0 3px 10px rgba(0,0,0,0.4);
+      animation: slideInLeft 0.6s ease-out 0.1s backwards;
+    }
+
+    .hero-subtitle {
+      color: #e6e6e6;
+      font-size: 1.05rem;
+      max-width: 520px;
+      margin-bottom: 1.5rem;
+      animation: slideInLeft 0.6s ease-out 0.2s backwards;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      animation: slideInLeft 0.6s ease-out 0.3s backwards;
+    }
+
+    .btn-primary {
+      background: var(--blue);
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 999px;
+      border: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-primary::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.2);
+      transform: translate(-50%, -50%);
+      transition: width 0.6s, height 0.6s;
+    }
+
+    .btn-primary:hover::before {
+      width: 300px;
+      height: 300px;
+    }
+
+    .btn-primary:hover {
+      background: var(--blue-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 16px rgba(0, 87, 255, 0.3);
+    }
+
+    .btn-primary:active {
+      transform: translateY(0);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.65);
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .btn-ghost:hover {
+      background: rgba(255,255,255,0.12);
+      border-color: rgba(255,255,255,0.9);
+      transform: translateY(-2px);
+    }
+
+    .btn-ghost:active {
+      transform: translateY(0);
+    }
+
+    .hero-footnote {
+      margin-top: 0.9rem;
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.8);
+      animation: slideInLeft 0.6s ease-out 0.4s backwards;
+    }
+
+    .hero-card {
+      background: rgba(255,255,255,0.12);
+      backdrop-filter: blur(6px);
+      border-radius: 1.4rem;
+      padding: 1.4rem;
+      color: white;
+      border: 1px solid rgba(255,255,255,0.15);
+      animation: slideInRight 0.6s ease-out 0.3s backwards;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: var(--blue);
+      color: white;
+      border-radius: 999px;
+      padding: 0.25rem 0.75rem;
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      border: 1px solid var(--blue-dark);
+    }
+
+    .hero-badge-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: var(--yellow);
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.6; transform: scale(1.2); }
+    }
+
+    .hero-card-title {
+      font-size: 1.1rem;
+      margin-top: 0.6rem;
+      font-weight: 600;
+    }
+
+    .hero-card-grid {
+      margin-top: 0.9rem;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.75rem;
+    }
+
+    .hero-pill {
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.2);
+      padding: 0.55rem 0.7rem;
+      border-radius: 0.8rem;
+      font-size: 0.8rem;
+      transition: all var(--transition-base);
+    }
+
+    .hero-pill:hover {
+      background: rgba(255,255,255,0.2);
+      border-color: rgba(255,255,255,0.35);
+      transform: translateY(-2px);
+    }
+
+    .hero-pill span {
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--yellow);
+      margin-bottom: 0.1rem;
+      display: block;
+    }
+
+    /* ============================================================
+       CARDS & GRIDS
+    ============================================================ */
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.3rem;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.3rem;
+    }
+
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.3rem;
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: 1rem;
+      padding: 1.15rem 1.2rem;
+      border: 1px solid rgba(148,163,184,0.25);
+      box-shadow: var(--shadow-lg);
+      font-size: 0.92rem;
+      transition: all var(--transition-base);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--blue), var(--blue-light));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform var(--transition-slow);
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-xl);
+      border-color: rgba(59, 130, 246, 0.3);
+    }
+
+    .card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .card h3 {
+      margin-bottom: 0.4rem;
+      font-size: 1rem;
+      transition: color var(--transition-fast);
+    }
+
+    .card:hover h3 {
+      color: var(--blue);
+    }
+
+    .card p {
+      color: var(--muted);
+    }
+
+    .card + .card p {
+      margin-top: 0.35rem;
+    }
+
+    .card-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.18rem 0.6rem;
+      border-radius: 999px;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.13em;
+      background: rgba(37, 99, 235, 0.06);
+      color: var(--blue-dark);
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+
+    .card-tag-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--blue);
+    }
+
+    /* ============================================================
+       TIMELINE
+    ============================================================ */
+
+    .timeline {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1rem;
+      position: relative;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      top: 2.5rem;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(
+        90deg,
+        var(--blue),
+        var(--blue-light),
+        var(--yellow-dark),
+        var(--yellow)
+      );
+      z-index: 0;
+    }
+
+    .timeline-step {
+      background: var(--card);
+      padding: 1rem;
+      border-radius: 1rem;
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      box-shadow: var(--shadow-lg);
+      font-size: 0.88rem;
+      position: relative;
+      transition: all var(--transition-base);
+    }
+
+    .timeline-step::before {
+      content: '';
+      position: absolute;
+      top: -1rem;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: white;
+      border: 3px solid var(--blue);
+      box-shadow: 0 0 0 4px white;
+      z-index: 1;
+      transition: all var(--transition-base);
+    }
+
+    .timeline-step:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-xl);
+      border-color: var(--blue);
+    }
+
+    .timeline-step:hover::before {
+      background: var(--blue);
+      transform: translateX(-50%) scale(1.2);
+    }
+
+    .timeline-step span {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--blue);
+      display: block;
+      margin-bottom: 0.2rem;
+      font-weight: 700;
+    }
+
+    .timeline-step h3 {
+      font-size: 0.95rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .timeline-step ul {
+      padding-left: 1rem;
+      color: var(--muted);
+    }
+
+    .timeline-step ul li {
+      margin-bottom: 0.18rem;
+    }
+
+    /* ============================================================
+       CONTACT SECTION
+    ============================================================ */
+
+    .contact {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+      gap: 2rem;
+      align-items: start;
+    }
+
+    .contact-card {
+      background: var(--card);
+      border-radius: 1.2rem;
+      padding: 1.4rem 1.3rem 1.5rem;
+      box-shadow: var(--shadow-xl);
+      border: 1px solid rgba(148, 163, 184, 0.3);
+      font-size: 0.92rem;
+    }
+
+    .contact-card h3 {
+      margin-bottom: 0.5rem;
+      font-size: 1rem;
+    }
+
+    .contact-card p {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-bottom: 0.7rem;
+    }
+
+    .contact-list {
+      list-style: none;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .contact-list li + li {
+      margin-top: 0.4rem;
+    }
+
+    .contact-list strong {
+      color: var(--text);
+    }
+
+    .contact-list a:hover {
+      color: var(--blue);
+    }
+
+    /* Form Styles */
+    form {
+      display: grid;
+      gap: 0.8rem;
+      font-size: 0.9rem;
+    }
+
+    .form-group {
+      position: relative;
+    }
+
+    label {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--muted);
+      display: block;
+      margin-bottom: 0.15rem;
+    }
+
+    input, textarea {
+      width: 100%;
+      border-radius: 0.7rem;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      padding: 0.55rem 0.7rem;
+      font-size: 0.9rem;
+      font-family: inherit;
+      background: #ffffff;
+      transition: all var(--transition-base);
+    }
+
+    input:hover, textarea:hover {
+      border-color: rgba(148, 163, 184, 0.6);
+    }
+
+    textarea {
+      min-height: 110px;
+      resize: vertical;
+    }
+
+    input:focus, textarea:focus {
+      outline: none;
+      border-color: var(--blue);
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+    }
+
+    input.error, textarea.error {
+      border-color: #ef4444;
+    }
+
+    .error-message {
+      color: #ef4444;
+      font-size: 0.75rem;
+      margin-top: 0.25rem;
+      display: none;
+    }
+
+    .error-message.visible {
+      display: block;
+    }
+
+    .form-success {
+      background: #10b981;
+      color: white;
+      padding: 1rem;
+      border-radius: 0.7rem;
+      display: none;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .form-success.visible {
+      display: flex;
+    }
+
+    /* ============================================================
+       SCROLL TO TOP BUTTON
+    ============================================================ */
+
+    .scroll-to-top {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--blue);
+      color: white;
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      opacity: 0;
+      visibility: hidden;
+      transition: all var(--transition-base);
+      box-shadow: var(--shadow-lg);
+      z-index: 999;
+    }
+
+    .scroll-to-top.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .scroll-to-top:hover {
+      background: var(--blue-dark);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-xl);
+    }
+
+    .scroll-to-top:active {
+      transform: translateY(-2px);
+    }
+
+    /* ============================================================
+       FOOTER
+    ============================================================ */
+
+    footer {
+      border-top: 1px solid rgba(148, 163, 184, 0.4);
+      padding: 1.2rem 1.25rem 1.4rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    footer .inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    /* ============================================================
+       ANIMATIONS
+    ============================================================ */
+
+    @keyframes slideInLeft {
+      from {
+        opacity: 0;
+        transform: translateX(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes slideInRight {
+      from {
+        opacity: 0;
+        transform: translateX(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    /* ============================================================
+       RESPONSIVE
+    ============================================================ */
+
+    @media (max-width: 960px) {
+      :root {
+        --header-height: 64px;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-card {
+        margin-top: 1.5rem;
+      }
+
+      .timeline {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .timeline::before {
+        display: none;
+      }
+
+      .grid-4 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .contact {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 720px) {
+      :root {
+        --header-height: 60px;
+      }
+
+      .nav-links {
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100vh;
+        width: 280px;
+        background: white;
+        flex-direction: column;
+        padding: 5rem 2rem;
+        gap: 1.5rem;
+        box-shadow: -4px 0 20px rgba(0, 0, 0, 0.1);
+        transform: translateX(100%);
+        transition: transform var(--transition-slow);
+      }
+
+      .nav-links.active {
+        transform: translateX(0);
+      }
+
+      .nav-links a {
+        font-size: 1.1rem;
+        padding: 0.5rem 0;
+      }
+
+      .menu-toggle {
+        display: flex;
+      }
+
+      .btn-nav {
+        font-size: 0.8rem;
+        padding: 0.45rem 0.85rem;
+      }
+
+      .logo-img {
+        height: 48px;
+      }
+
+      .hero {
+        padding: 2rem 1.5rem;
+        min-height: 360px;
+      }
+
+      .hero-title {
+        font-size: 2rem;
+      }
+
+      .hero-subtitle {
+        font-size: 0.95rem;
+      }
+
+      .hero-card-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section-title {
+        font-size: 1.6rem;
+      }
+
+      .grid-2,
+      .grid-3,
+      .grid-4,
+      .timeline {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      main {
+        padding-top: 1.5rem;
+      }
+
+      .scroll-to-top {
+        bottom: 1.5rem;
+        right: 1.5rem;
+        width: 44px;
+        height: 44px;
+      }
+    }
+
+    /* ============================================================
+       UTILITY CLASSES
+    ============================================================ */
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border-width: 0;
+    }
+  </style>
+</head>
+
+<body>
+
+<header id="header">
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="logo">
+      <a href="#home" aria-label="McCann Perkins home">
+        <img src="logo-mccann-perkins.png" class="logo-img" alt="McCann Perkins logo" />
+      </a>
+    </div>
+
+    <div class="nav-links" id="navLinks">
+      <a href="#problem">Problem</a>
+      <a href="#about">Approach</a>
+      <a href="#who">Who we work with</a>
+      <a href="#vision">Vision</a>
+      <a href="#expertise">Expertise</a>
+      <a href="#services">Services</a>
+      <a href="#journey">Journey</a>
+      <a href="#contact">Contact</a>
+    </div>
+
+    <button class="btn-nav" onclick="scrollToContact()" aria-label="Start a conversation">
+      Start a conversation
+    </button>
+
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+</header>
+
+<main>
+
+  <!-- HERO -------------------------------------------------------->
+  <section id="home" class="hero-section" aria-label="Hero section">
+    <div class="hero">
+
+      <div>
+        <div class="hero-kicker">Startup Studio for Critical Technologies</div>
+
+        <h1 class="hero-title">Together, we build what capital alone cannot create.</h1>
+
+        <p class="hero-subtitle">
+          McCann Perkins is a startup studio for deep-tech and sovereign innovation.
+          We join as real partners — not passive investors.
+        </p>
+
+        <div class="hero-actions">
+          <button class="btn-primary" onclick="scrollToContact()">
+            Start your venture
+          </button>
+          <button class="btn-ghost" onclick="scrollToSection('about')">
+            Learn more
+          </button>
+        </div>
+
+        <p class="hero-footnote">
+          Based in North America, working with founders, corporate partners, and investors across critical sectors.
+        </p>
+      </div>
+
+      <aside class="hero-card" aria-label="Studio snapshot">
+        <div class="hero-badge">
+          <span class="hero-badge-dot"></span>
+          Deep-tech Startup Studio
+        </div>
+
+        <div class="hero-card-title">
+          We bring the co-founders you can't hire yet.
+        </div>
+
+        <div class="hero-card-grid">
+          <div class="hero-pill">
+            <span>Capital</span>
+            Strategic C-level leadership instead of passive funding.
+          </div>
+          <div class="hero-pill">
+            <span>Focus</span>
+            Cybersecurity, quantum, sovereign infrastructure, sustainable AI.
+          </div>
+          <div class="hero-pill">
+            <span>Model</span>
+            Long-term, hands-on involvement from day one.
+          </div>
+          <div class="hero-pill">
+            <span>Outcome</span>
+            Anti-fragile companies built to last.
+          </div>
+        </div>
+      </aside>
+
+    </div>
+  </section>
+
+  <!-- PROBLEM ----------------------------------------------------->
+  <section id="problem" class="fade-in">
+    <div class="section-label">The problem</div>
+    <h2 class="section-title">Why tech startups fail — even with funding</h2>
+    <p class="section-intro">
+      Too many deep-tech and critical-infrastructure startups collapse not because the idea is weak,
+      but because the founding team is alone when execution gets hard.
+    </p>
+
+    <div class="grid-2">
+      <div class="card fade-in">
+        <h3>Capital without commitment</h3>
+        <p>
+          Traditional investors deploy money, not execution. Once the round is closed, founders face
+          strategic, technical, and operational decisions without a true partner at the table.
+        </p>
+      </div>
+      <div class="card fade-in fade-in-delay-1">
+        <h3>Speed over substance</h3>
+        <p>
+          Deep technologies mature over years, not quarters. Pressure for rapid growth and fast returns
+          often clashes with the time needed to validate, certify, and industrialize.
+        </p>
+      </div>
+      <div class="card fade-in fade-in-delay-2">
+        <h3>Founders left isolated</h3>
+        <p>
+          Entrepreneurs are expected to recruit, structure, execute, and fundraise all at once —
+          while lacking the senior C-level support required to build a real company.
+        </p>
+      </div>
+      <div class="card fade-in fade-in-delay-3">
+        <h3>No room for error</h3>
+        <p>
+          In cybersecurity, quantum, or sovereign infrastructure, mistakes are expensive.
+          Poor governance, fragile architecture, or rushed go-to-market can kill a project before it scales.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT / APPROACH -------------------------------------------->
+  <section id="about" class="fade-in">
+    <div class="section-label">Our approach</div>
+    <h2 class="section-title">We build with committed allies, not capital alone.</h2>
+    <p class="section-intro">
+      Founded in 2006, McCann Perkins is an internationally oriented startup studio focused on founders in critical
+      technologies. After more than 15 years working alongside bold entrepreneurs, we chose to anchor our work in
+      North America to support sovereign, sustainable, and strategic innovation.
+    </p>
+
+    <div class="grid-2">
+      <div class="card fade-in">
+        <h3>Who we are</h3>
+        <p>
+          We are not a venture fund. We do not deploy cash. Instead, we invest our time, experience, and
+          operational firepower to turn strong concepts into resilient companies with real foundations.
+        </p>
+        <p style="margin-top:0.4rem;">
+          From legal structuring to technical architecture and governance, we help founders move from idea to
+          "real company" stage with rigor and discipline.
+        </p>
+      </div>
+      <div class="card fade-in fade-in-delay-1">
+        <h3>Our promise</h3>
+        <p><strong>Strategic mind.</strong> Seasoned C-level executives involved weekly in your key decisions.</p>
+        <p><strong>Strong foundations.</strong> Governance, operations, and infrastructure built to last.</p>
+        <p><strong>Hands-on team.</strong> Not mission-based consultants, but partners who commit for the long term.</p>
+        <p><strong>Key partners.</strong> A selective network of industrial and institutional allies, never random intros.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHO WE WORK WITH -------------------------------------------->
+  <section id="who" class="fade-in">
+    <div class="section-label">Who we work with</div>
+    <h2 class="section-title">A studio for those who want to build seriously, not chase trends.</h2>
+    <p class="section-intro">
+      We work with founders and partners who are ready to engage deeply—on technology, execution, and long-term impact.
+    </p>
+
+    <div class="grid-4">
+      <div class="card fade-in">
+        <div class="card-tag">
+          <span class="card-tag-dot"></span>01
+        </div>
+        <h3>Ambitious founders</h3>
+        <p>
+          You have a bold vision and unique expertise, but limited resources to structure, secure, and launch your
+          project. We help you lay the foundation for a real company.
+        </p>
+      </div>
+      <div class="card fade-in fade-in-delay-1">
+        <div class="card-tag">
+          <span class="card-tag-dot"></span>02
+        </div>
+        <h3>Spin-offs & business pivots</h3>
+        <p>
+          Emerging from a lab, a corporate unit, or an abandoned project? We help transform prototypes and
+          internal initiatives into standalone ventures.
+        </p>
+      </div>
+      <div class="card fade-in fade-in-delay-2">
+        <div class="card-tag">
+          <span class="card-tag-dot"></span>03
+        </div>
+        <h3>Corporate partners</h3>
+        <p>
+          You want to engage in innovation differently. We provide a curated, structured dealflow and co-build
+          ventures aligned with your strategic priorities.
+        </p>
+      </div>
+      <div class="card fade-in fade-in-delay-3">
+        <div class="card-tag">
+          <span class="card-tag-dot"></span>04
+        </div>
+        <h3>Discerning investors</h3>
+        <p>
+          You look for serious, supported projects from day one. Our studio acts as a rigorous selection gateway:
+          we only bring forward what truly stands.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- VISION & MISSION -------------------------------------------->
+  <section id="vision" class="fade-in">
+    <div class="section-label">Vision & Mission</div>
+    <h2 class="section-title">A different kind of capital for a different era.</h2>
+    <p class="section-intro">
+      Human capital—time, critical expertise, and unwavering alignment—is now the scarcest resource in company
+      building. Our studio is designed to deploy exactly that, where it matters most.
+    </p>
+
+    <div class="grid-3">
+      <div class="card fade-in">
+        <h3>Vision</h3>
+        <p>
+          We believe the most resilient companies are built on trust, depth, and uncompromising support. Our
+          vision is to make this kind of capital accessible to founders in critical technologies.
+        </p>
+      </div>
+      <div class="card fade-in fade-in-delay-1">
+        <h3>Mission</h3>
+        <p>
+          We co-found ambitious, purposeful startups with committed entrepreneurs. Our teams bring together the
+          strategic, technical, and operational capabilities required to move from idea to durable company.
+        </p>
+      </div>
+      <div class="card fade-in fade-in-delay-2">
+        <h3>Standards</h3>
+        <p>
+          We do not multiply projects for the sake of volume. Each collaboration is a long-term partnership built
+          on trust, shared values, and clear alignment on the way we execute.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERTISE --------------------------------------------------->
+  <section id="expertise" class="fade-in">
+    <div class="section-label">Core expertise</div>
+    <h2 class="section-title">Where we build: cybersecurity, quantum, and sustainable AI.</h2>
+    <p class="section-intro">
+      McCann Perkins focuses on critical technologies with structural impact: securing data, enabling sovereign
+      infrastructure, and accelerating the green transition.
+    </p>
+
+    <div class="grid-2">
+      <div class="card fade-in">
+        <h3>Cybersecurity & Quantum Computing</h3>
+        <p>
+          • Safeguarding critical and sensitive data<br />
+          • Quantum computing and hybrid classical/quantum architectures<br />
+          • Post-quantum cryptography and quantum-resistant design<br />
+          • Quantum communication and secure infrastructure
+        </p>
+      </div>
+      <div class="card fade-in fade-in-delay-1">
+        <h3>Purpose-led Deep Tech & Sustainable AI</h3>
+        <p>
+          • Technologies that support the green transition and decarbonization<br />
+          • Efficient, frugal, and ethically trained AI models<br />
+          • Circular and transparent value chains for digital infrastructure<br />
+          • Construction, infrastructure, and industrial applications
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES ---------------------------------------------------->
+  <section id="services" class="fade-in">
+    <div class="section-label">Services</div>
+    <h2 class="section-title">Giving founders access to what they can't secure alone at the start.</h2>
+    <p class="section-intro">
+      Our studio combines mentorship, structuring, and hands-on execution. We join as co-founders, not outside
+      consultants.
+    </p>
+
+    <div class="grid-3">
+      <div class="card fade-in">
+        <h3>Mentorship</h3>
+        <p>
+          High-level strategic guidance from experienced CEOs, CTOs, COOs, and CISOs who understand both deep-tech
+          realities and investor expectations.
+        </p>
+      </div>
+      <div class="card fade-in fade-in-delay-1">
+        <h3>Structuration</h3>
+        <p>
+          Bespoke legal and business structuring: governance models, cap tables, shareholder agreements, and
+          operating frameworks designed for longevity.
+        </p>
+      </div>
+      <div class="card fade-in fade-in-delay-2">
+        <h3>IT advisory</h3>
+        <p>
+          Architecture reviews, infrastructure choices, and cybersecurity hardening so that technical foundations
+          support—not constrain—future growth.
+        </p>
+      </div>
+      <div class="card fade-in">
+        <h3>Matching</h3>
+        <p>
+          Helping founders build strong founding teams and connect with the right co-founders, advisors, and
+          industrial partners from our network.
+        </p>
+      </div>
+      <div class="card fade-in fade-in-delay-1">
+        <h3>Operational maturity</h3>
+        <p>
+          From day one, we help define processes, tools, and roles so operations can scale without chaos as the
+          first customers and partners come on board.
+        </p>
+      </div>
+      <div class="card fade-in fade-in-delay-2">
+        <h3>Fractional C-Level</h3>
+        <p>
+          We bring in seasoned C-level leaders who act as true co-founders on a flexible basis, giving startups
+          access to senior talent they could not yet hire full-time.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- METHOD ------------------------------------------------------>
+  <section id="method" class="fade-in">
+    <div class="section-label">Method</div>
+    <h2 class="section-title">The Dual Loop: from opportunity to company.</h2>
+    <p class="section-intro">
+      Our proprietary Dual Loop method helps transform real-world needs into validated ventures, combining
+      disciplined exploration with fast, concrete execution.
+    </p>
+
+    <div class="grid-2">
+      <div class="card fade-in">
+        <h3>Deep Dive</h3>
+        <p>
+          We start with a focused exploration of concrete use cases grounded in industrial reality. Together we
+          validate market potential, regulatory constraints, and technological feasibility before writing a
+          single line of code.
+        </p>
+      </div>
+      <div class="card fade-in fade-in-delay-1">
+        <h3>Fast Forge</h3>
+        <p>
+          In the second loop, we turn selected opportunities into prototypes at speed. By leveraging hybrid
+          classical/quantum tools and pilot partners, we accelerate proof of usefulness and shorten incubation
+          cycles dramatically.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- VENTURE JOURNEY --------------------------------------------->
+  <section id="journey" class="fade-in">
+    <div class="section-label">Venture Journey</div>
+    <h2 class="section-title">From first conversation to independent company.</h2>
+    <p class="section-intro">
+      We stay involved from alignment to launch, and beyond. Our role evolves as the company gains traction and
+      autonomy.
+    </p>
+
+    <div class="timeline">
+      <div class="timeline-step fade-in">
+        <span>Weeks 0–4</span>
+        <h3>Align – Strategic Framing & Commitment</h3>
+        <ul>
+          <li>Diagnostic of founding team and market context</li>
+          <li>Vision, roles, and governance clarified</li>
+          <li>Engagement pact and equity framework outlined</li>
+          <li>Initial roadmap and milestones defined</li>
+        </ul>
+      </div>
+      <div class="timeline-step fade-in fade-in-delay-1">
+        <span>Months 1–3</span>
+        <h3>Build – Structure, Product & Positioning</h3>
+        <ul>
+          <li>Legal and business foundations put in place</li>
+          <li>Core offer and value proposition refined</li>
+          <li>Technical architecture and security baseline designed</li>
+          <li>Brand identity and narrative created</li>
+        </ul>
+      </div>
+      <div class="timeline-step fade-in fade-in-delay-2">
+        <span>Months 4–8</span>
+        <h3>Launch – MVP, Clients & First Revenue</h3>
+        <ul>
+          <li>MVP delivered and tested with early adopters</li>
+          <li>First commercial traction and feedback loops</li>
+          <li>Investor-ready materials prepared</li>
+          <li>Day-to-day execution supported by our team</li>
+        </ul>
+      </div>
+      <div class="timeline-step fade-in fade-in-delay-3">
+        <span>Months 9–12+</span>
+        <h3>Scale or Transition – Traction & Growth</h3>
+        <ul>
+          <li>Funding or strategic partnerships secured</li>
+          <li>Team reinforced for independence</li>
+          <li>Our role shifts to board-level partner or advisor</li>
+          <li>Long-term governance and strategy maintained</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT ----------------------------------------------------->
+  <section id="contact" class="fade-in">
+    <div class="section-label">Contact</div>
+    <h2 class="section-title">Let's explore what we could build together.</h2>
+    <p class="section-intro">
+      If you're working on cybersecurity, quantum, sovereign infrastructure, or sustainable AI — and you're
+      looking for committed co-founders rather than just funding — we'd be glad to talk.
+    </p>
+
+    <div class="contact">
+      <div class="contact-card fade-in">
+        <h3>Studio coordinates</h3>
+        <p>
+          We work with founders, corporate partners, and investors across North America and Europe.
+        </p>
+        <ul class="contact-list">
+          <li><strong>Address</strong><br />2915 Ogletown Rd, Newark, DE 19713, United States</li>
+          <li><strong>Website</strong><br /><a href="https://www.mccannperkins.com" target="_blank" rel="noopener">www.mccannperkins.com</a></li>
+          <li><strong>Typical first step</strong><br />A 45-minute conversation to understand your project, constraints, and ambitions.</li>
+        </ul>
+      </div>
+
+      <div class="fade-in fade-in-delay-1">
+        <form id="contactForm" novalidate>
+          <div class="form-group">
+            <label for="name">Name <span aria-label="required">*</span></label>
+            <input id="name" name="name" type="text" placeholder="Your name" required aria-required="true" />
+            <div class="error-message" id="nameError">Please enter your name</div>
+          </div>
+          <div class="form-group">
+            <label for="email">Email <span aria-label="required">*</span></label>
+            <input id="email" name="email" type="email" placeholder="you@company.com" required aria-required="true" />
+            <div class="error-message" id="emailError">Please enter a valid email address</div>
+          </div>
+          <div class="form-group">
+            <label for="role">Your role</label>
+            <input id="role" name="role" type="text" placeholder="Founder, investor, corporate partner…" />
+          </div>
+          <div class="form-group">
+            <label for="message">Project or question <span aria-label="required">*</span></label>
+            <textarea id="message" name="message" placeholder="Tell us more about what you're building, and where you might need a co-founder." required aria-required="true"></textarea>
+            <div class="error-message" id="messageError">Please tell us about your project</div>
+          </div>
+          <div class="form-success" id="formSuccess">
+            ✓ Thank you! We'll get back to you within 48 hours.
+          </div>
+          <button type="submit" class="btn-primary">Send message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="inner">
+    <span>© 2025 McCann Perkins. All rights reserved.</span>
+    <span>Built with a commitment to deep-tech, sovereign, and sustainable innovation.</span>
+  </div>
+</footer>
+
+<!-- Scroll to Top Button -->
+<button class="scroll-to-top" id="scrollToTop" aria-label="Scroll to top">
+  ↑
+</button>
+
+<script>
+  // ============================================================
+  // MOBILE MENU TOGGLE
+  // ============================================================
+  const menuToggle = document.getElementById('menuToggle');
+  const navLinks = document.getElementById('navLinks');
+
+  menuToggle.addEventListener('click', () => {
+    menuToggle.classList.toggle('active');
+    navLinks.classList.toggle('active');
+    const isExpanded = navLinks.classList.contains('active');
+    menuToggle.setAttribute('aria-expanded', isExpanded);
+
+    // Prevent body scroll when menu is open
+    document.body.style.overflow = isExpanded ? 'hidden' : '';
+  });
+
+  // Close mobile menu when clicking a link
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      menuToggle.classList.remove('active');
+      navLinks.classList.remove('active');
+      menuToggle.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    });
+  });
+
+  // Close mobile menu when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!navLinks.contains(e.target) && !menuToggle.contains(e.target)) {
+      menuToggle.classList.remove('active');
+      navLinks.classList.remove('active');
+      menuToggle.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
+  });
+
+  // ============================================================
+  // HEADER SCROLL EFFECT
+  // ============================================================
+  const header = document.getElementById('header');
+  let lastScroll = 0;
+
+  window.addEventListener('scroll', () => {
+    const currentScroll = window.pageYOffset;
+
+    if (currentScroll > 80) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
+
+    lastScroll = currentScroll;
+  });
+
+  // ============================================================
+  // ACTIVE NAVIGATION LINK
+  // ============================================================
+  const sections = document.querySelectorAll('section[id]');
+  const navLinksAll = document.querySelectorAll('.nav-links a');
+
+  window.addEventListener('scroll', () => {
+    let current = '';
+
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop;
+      const sectionHeight = section.clientHeight;
+      if (window.pageYOffset >= sectionTop - 150) {
+        current = section.getAttribute('id');
+      }
+    });
+
+    navLinksAll.forEach(link => {
+      link.classList.remove('active');
+      if (link.getAttribute('href') === `#${current}`) {
+        link.classList.add('active');
+      }
+    });
+  });
+
+  // ============================================================
+  // SCROLL TO TOP BUTTON
+  // ============================================================
+  const scrollToTopBtn = document.getElementById('scrollToTop');
+
+  window.addEventListener('scroll', () => {
+    if (window.pageYOffset > 500) {
+      scrollToTopBtn.classList.add('visible');
+    } else {
+      scrollToTopBtn.classList.remove('visible');
+    }
+  });
+
+  scrollToTopBtn.addEventListener('click', () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  });
+
+  // ============================================================
+  // INTERSECTION OBSERVER FOR FADE-IN ANIMATIONS
+  // ============================================================
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, observerOptions);
+
+  document.querySelectorAll('.fade-in').forEach(el => {
+    observer.observe(el);
+  });
+
+  // ============================================================
+  // FORM VALIDATION & SUBMISSION
+  // ============================================================
+  const contactForm = document.getElementById('contactForm');
+  const formSuccess = document.getElementById('formSuccess');
+
+  contactForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    // Reset previous errors
+    document.querySelectorAll('.error-message').forEach(el => el.classList.remove('visible'));
+    document.querySelectorAll('input, textarea').forEach(el => el.classList.remove('error'));
+
+    let isValid = true;
+
+    // Name validation
+    const name = document.getElementById('name');
+    if (!name.value.trim()) {
+      document.getElementById('nameError').classList.add('visible');
+      name.classList.add('error');
+      isValid = false;
+    }
+
+    // Email validation
+    const email = document.getElementById('email');
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!email.value.trim() || !emailRegex.test(email.value)) {
+      document.getElementById('emailError').classList.add('visible');
+      email.classList.add('error');
+      isValid = false;
+    }
+
+    // Message validation
+    const message = document.getElementById('message');
+    if (!message.value.trim()) {
+      document.getElementById('messageError').classList.add('visible');
+      message.classList.add('error');
+      isValid = false;
+    }
+
+    if (isValid) {
+      // Here you would typically send the form data to a server
+      // For now, we'll just show a success message
+      formSuccess.classList.add('visible');
+      contactForm.reset();
+
+      // Hide success message after 5 seconds
+      setTimeout(() => {
+        formSuccess.classList.remove('visible');
+      }, 5000);
+    }
+  });
+
+  // Remove error state on input
+  document.querySelectorAll('input, textarea').forEach(field => {
+    field.addEventListener('input', () => {
+      field.classList.remove('error');
+      const errorId = field.id + 'Error';
+      const errorEl = document.getElementById(errorId);
+      if (errorEl) {
+        errorEl.classList.remove('visible');
+      }
+    });
+  });
+
+  // ============================================================
+  // HELPER FUNCTIONS
+  // ============================================================
+  function scrollToContact() {
+    document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+  }
+
+  function scrollToSection(id) {
+    document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+  }
+
+  // ============================================================
+  // KEYBOARD NAVIGATION
+  // ============================================================
+  document.addEventListener('keydown', (e) => {
+    // Escape key closes mobile menu
+    if (e.key === 'Escape' && navLinks.classList.contains('active')) {
+      menuToggle.classList.remove('active');
+      navLinks.classList.remove('active');
+      menuToggle.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
+  });
+
+  // ============================================================
+  // SMOOTH SCROLL POLYFILL FOR OLDER BROWSERS
+  // ============================================================
+  if (!('scrollBehavior' in document.documentElement.style)) {
+    const script = document.createElement('script');
+    script.src = 'https://unpkg.com/smoothscroll-polyfill/dist/smoothscroll.min.js';
+    document.head.appendChild(script);
+  }
+</script>
+
+</body>
+</html>
