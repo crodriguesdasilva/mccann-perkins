@@ -42,7 +42,7 @@
       --text: #111827;
       --muted: #6b7280;
       --card: #ffffff;
-      --max-width: 1100px;
+      --max-width: 1200px;
 
       /* Shadows */
       --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
@@ -93,6 +93,7 @@
     img {
       max-width: 100%;
       height: auto;
+      display: block;
     }
 
     /* ============================================================
@@ -234,14 +235,20 @@
     ============================================================ */
 
     main {
+      max-width: 100%;
+      margin: 0 auto;
+    }
+
+    .container {
       max-width: var(--max-width);
       margin: 0 auto;
-      padding: 2rem 1.25rem 3rem;
+      padding: 0 1.25rem;
     }
 
     section {
-      padding: 3rem 0;
+      padding: 4rem 0;
       scroll-margin-top: calc(var(--header-height) + 20px);
+      position: relative;
     }
 
     .section-label {
@@ -254,16 +261,16 @@
     }
 
     .section-title {
-      font-size: 1.9rem;
+      font-size: 2.2rem;
       margin-bottom: 1rem;
       letter-spacing: -0.02em;
     }
 
     .section-intro {
-      max-width: 640px;
+      max-width: 720px;
       color: var(--muted);
-      margin-bottom: 1.7rem;
-      font-size: 0.98rem;
+      margin-bottom: 2rem;
+      font-size: 1.05rem;
     }
 
     /* Fade-in animations */
@@ -288,40 +295,49 @@
     ============================================================ */
 
     .hero-section {
-      border-radius: 1.4rem;
-      overflow: hidden;
-      margin-bottom: 2.5rem;
-    }
-
-    .hero {
       position: relative;
-      display: grid;
-      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
-      gap: 2.5rem;
-      padding: 3rem 2.2rem;
-      min-height: 420px;
-
-      background-image: url("https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1600&q=80");
-      background-size: cover;
-      background-position: center;
+      min-height: 90vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
     }
 
-    .hero::before {
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+
+    .hero-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-bg::before {
       content: "";
       position: absolute;
       inset: 0;
       background: linear-gradient(
-        to right,
-        rgba(0,0,0,0.55),
-        rgba(0,0,0,0.25),
-        rgba(0,0,0,0.08)
+        135deg,
+        rgba(0,0,0,0.7) 0%,
+        rgba(0,87,255,0.5) 50%,
+        rgba(0,0,0,0.6) 100%
       );
       z-index: 1;
     }
 
-    .hero > * {
+    .hero-content {
       position: relative;
       z-index: 2;
+      padding: 4rem 0;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.7fr);
+      gap: 3rem;
+      align-items: center;
     }
 
     .hero-kicker {
@@ -335,7 +351,7 @@
     }
 
     .hero-title {
-      font-size: 2.5rem;
+      font-size: 3rem;
       line-height: 1.15;
       color: white;
       margin-bottom: 1rem;
@@ -346,8 +362,8 @@
 
     .hero-subtitle {
       color: #e6e6e6;
-      font-size: 1.05rem;
-      max-width: 520px;
+      font-size: 1.15rem;
+      max-width: 580px;
       margin-bottom: 1.5rem;
       animation: slideInLeft 0.6s ease-out 0.2s backwards;
     }
@@ -362,11 +378,11 @@
     .btn-primary {
       background: var(--blue);
       color: white;
-      padding: 0.75rem 1.5rem;
+      padding: 0.85rem 2rem;
       border-radius: 999px;
       border: none;
       font-weight: 600;
-      font-size: 0.95rem;
+      font-size: 1rem;
       position: relative;
       overflow: hidden;
     }
@@ -402,11 +418,11 @@
     .btn-ghost {
       background: transparent;
       color: white;
-      padding: 0.75rem 1.5rem;
+      padding: 0.85rem 2rem;
       border-radius: 999px;
       border: 1px solid rgba(255,255,255,0.65);
       font-weight: 600;
-      font-size: 0.95rem;
+      font-size: 1rem;
     }
 
     .btn-ghost:hover {
@@ -420,20 +436,21 @@
     }
 
     .hero-footnote {
-      margin-top: 0.9rem;
-      font-size: 0.85rem;
+      margin-top: 1.5rem;
+      font-size: 0.9rem;
       color: rgba(255,255,255,0.8);
       animation: slideInLeft 0.6s ease-out 0.4s backwards;
     }
 
     .hero-card {
       background: rgba(255,255,255,0.12);
-      backdrop-filter: blur(6px);
-      border-radius: 1.4rem;
-      padding: 1.4rem;
+      backdrop-filter: blur(10px);
+      border-radius: 1.6rem;
+      padding: 1.8rem;
       color: white;
-      border: 1px solid rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.2);
       animation: slideInRight 0.6s ease-out 0.3s backwards;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
     }
 
     .hero-badge {
@@ -443,7 +460,7 @@
       background: var(--blue);
       color: white;
       border-radius: 999px;
-      padding: 0.25rem 0.75rem;
+      padding: 0.3rem 0.85rem;
       font-size: 0.7rem;
       letter-spacing: 0.15em;
       text-transform: uppercase;
@@ -464,30 +481,30 @@
     }
 
     .hero-card-title {
-      font-size: 1.1rem;
-      margin-top: 0.6rem;
+      font-size: 1.2rem;
+      margin-top: 0.8rem;
       font-weight: 600;
+      margin-bottom: 1rem;
     }
 
     .hero-card-grid {
-      margin-top: 0.9rem;
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 0.75rem;
+      gap: 0.85rem;
     }
 
     .hero-pill {
       background: rgba(255,255,255,0.15);
-      border: 1px solid rgba(255,255,255,0.2);
-      padding: 0.55rem 0.7rem;
-      border-radius: 0.8rem;
-      font-size: 0.8rem;
+      border: 1px solid rgba(255,255,255,0.25);
+      padding: 0.7rem 0.85rem;
+      border-radius: 0.9rem;
+      font-size: 0.85rem;
       transition: all var(--transition-base);
     }
 
     .hero-pill:hover {
-      background: rgba(255,255,255,0.2);
-      border-color: rgba(255,255,255,0.35);
+      background: rgba(255,255,255,0.22);
+      border-color: rgba(255,255,255,0.4);
       transform: translateY(-2px);
     }
 
@@ -496,8 +513,73 @@
       text-transform: uppercase;
       letter-spacing: 0.12em;
       color: var(--yellow);
-      margin-bottom: 0.1rem;
+      margin-bottom: 0.2rem;
       display: block;
+      font-weight: 700;
+    }
+
+    /* ============================================================
+       IMAGE SECTION STYLES
+    ============================================================ */
+
+    .section-with-image {
+      background: white;
+    }
+
+    .section-dark {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      color: white;
+    }
+
+    .section-dark .section-label {
+      color: var(--yellow);
+    }
+
+    .section-dark .section-intro,
+    .section-dark .card p {
+      color: rgba(255,255,255,0.8);
+    }
+
+    .split-section {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .split-section.reverse {
+      direction: rtl;
+    }
+
+    .split-section.reverse > * {
+      direction: ltr;
+    }
+
+    .section-image {
+      position: relative;
+      border-radius: 1.2rem;
+      overflow: hidden;
+      box-shadow: var(--shadow-xl);
+    }
+
+    .section-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      min-height: 400px;
+      transition: transform 0.6s ease;
+    }
+
+    .section-image:hover img {
+      transform: scale(1.05);
+    }
+
+    .section-image::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(0,87,255,0.15), transparent);
+      pointer-events: none;
     }
 
     /* ============================================================
@@ -507,28 +589,28 @@
     .grid-2 {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 1.3rem;
+      gap: 1.5rem;
     }
 
     .grid-3 {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 1.3rem;
+      gap: 1.5rem;
     }
 
     .grid-4 {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 1.3rem;
+      gap: 1.5rem;
     }
 
     .card {
       background: var(--card);
-      border-radius: 1rem;
-      padding: 1.15rem 1.2rem;
+      border-radius: 1.2rem;
+      padding: 1.4rem 1.5rem;
       border: 1px solid rgba(148,163,184,0.25);
       box-shadow: var(--shadow-lg);
-      font-size: 0.92rem;
+      font-size: 0.95rem;
       transition: all var(--transition-base);
       position: relative;
       overflow: hidden;
@@ -558,8 +640,8 @@
     }
 
     .card h3 {
-      margin-bottom: 0.4rem;
-      font-size: 1rem;
+      margin-bottom: 0.6rem;
+      font-size: 1.1rem;
       transition: color var(--transition-fast);
     }
 
@@ -569,24 +651,80 @@
 
     .card p {
       color: var(--muted);
+      line-height: 1.7;
     }
 
     .card + .card p {
-      margin-top: 0.35rem;
+      margin-top: 0.4rem;
+    }
+
+    /* Image Cards */
+    .card-with-image {
+      position: relative;
+      min-height: 320px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 1.8rem;
+      color: white;
+      overflow: hidden;
+    }
+
+    .card-with-image::before {
+      display: none;
+    }
+
+    .card-image {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+
+    .card-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .card-with-image:hover .card-image img {
+      transform: scale(1.1);
+    }
+
+    .card-image::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.85), rgba(0,0,0,0.2));
+    }
+
+    .card-with-image > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .card-with-image h3 {
+      color: white;
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .card-with-image p {
+      color: rgba(255,255,255,0.9);
     }
 
     .card-tag {
       display: inline-flex;
       align-items: center;
       gap: 0.4rem;
-      padding: 0.18rem 0.6rem;
+      padding: 0.2rem 0.7rem;
       border-radius: 999px;
       font-size: 0.7rem;
       text-transform: uppercase;
       letter-spacing: 0.13em;
-      background: rgba(37, 99, 235, 0.06);
+      background: rgba(37, 99, 235, 0.1);
       color: var(--blue-dark);
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.6rem;
       font-weight: 600;
     }
 
@@ -598,20 +736,53 @@
     }
 
     /* ============================================================
+       STATS SECTION
+    ============================================================ */
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .stat-item {
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+
+    .stat-number {
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--blue);
+      margin-bottom: 0.5rem;
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 0.95rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-weight: 600;
+    }
+
+    /* ============================================================
        TIMELINE
     ============================================================ */
 
     .timeline {
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 1rem;
+      gap: 1.5rem;
       position: relative;
+      margin-top: 3rem;
     }
 
     .timeline::before {
       content: '';
       position: absolute;
-      top: 2.5rem;
+      top: 2.8rem;
       left: 0;
       right: 0;
       height: 2px;
@@ -627,11 +798,11 @@
 
     .timeline-step {
       background: var(--card);
-      padding: 1rem;
-      border-radius: 1rem;
+      padding: 1.3rem;
+      border-radius: 1.2rem;
       border: 1px solid rgba(148, 163, 184, 0.25);
       box-shadow: var(--shadow-lg);
-      font-size: 0.88rem;
+      font-size: 0.9rem;
       position: relative;
       transition: all var(--transition-base);
     }
@@ -639,15 +810,15 @@
     .timeline-step::before {
       content: '';
       position: absolute;
-      top: -1rem;
+      top: -1.2rem;
       left: 50%;
       transform: translateX(-50%);
-      width: 16px;
-      height: 16px;
+      width: 18px;
+      height: 18px;
       border-radius: 50%;
       background: white;
       border: 3px solid var(--blue);
-      box-shadow: 0 0 0 4px white;
+      box-shadow: 0 0 0 5px white;
       z-index: 1;
       transition: all var(--transition-base);
     }
@@ -660,7 +831,7 @@
 
     .timeline-step:hover::before {
       background: var(--blue);
-      transform: translateX(-50%) scale(1.2);
+      transform: translateX(-50%) scale(1.3);
     }
 
     .timeline-step span {
@@ -669,22 +840,22 @@
       letter-spacing: 0.15em;
       color: var(--blue);
       display: block;
-      margin-bottom: 0.2rem;
+      margin-bottom: 0.3rem;
       font-weight: 700;
     }
 
     .timeline-step h3 {
-      font-size: 0.95rem;
-      margin-bottom: 0.4rem;
+      font-size: 1rem;
+      margin-bottom: 0.6rem;
     }
 
     .timeline-step ul {
-      padding-left: 1rem;
+      padding-left: 1.1rem;
       color: var(--muted);
     }
 
     .timeline-step ul li {
-      margin-bottom: 0.18rem;
+      margin-bottom: 0.25rem;
     }
 
     /* ============================================================
@@ -694,38 +865,38 @@
     .contact {
       display: grid;
       grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
-      gap: 2rem;
+      gap: 3rem;
       align-items: start;
     }
 
     .contact-card {
       background: var(--card);
-      border-radius: 1.2rem;
-      padding: 1.4rem 1.3rem 1.5rem;
+      border-radius: 1.4rem;
+      padding: 2rem 1.8rem;
       box-shadow: var(--shadow-xl);
       border: 1px solid rgba(148, 163, 184, 0.3);
-      font-size: 0.92rem;
+      font-size: 0.95rem;
     }
 
     .contact-card h3 {
-      margin-bottom: 0.5rem;
-      font-size: 1rem;
+      margin-bottom: 0.6rem;
+      font-size: 1.2rem;
     }
 
     .contact-card p {
-      font-size: 0.9rem;
+      font-size: 0.95rem;
       color: var(--muted);
-      margin-bottom: 0.7rem;
+      margin-bottom: 1rem;
     }
 
     .contact-list {
       list-style: none;
-      font-size: 0.9rem;
+      font-size: 0.95rem;
       color: var(--muted);
     }
 
     .contact-list li + li {
-      margin-top: 0.4rem;
+      margin-top: 0.6rem;
     }
 
     .contact-list strong {
@@ -739,8 +910,8 @@
     /* Form Styles */
     form {
       display: grid;
-      gap: 0.8rem;
-      font-size: 0.9rem;
+      gap: 1rem;
+      font-size: 0.95rem;
     }
 
     .form-group {
@@ -748,19 +919,19 @@
     }
 
     label {
-      font-size: 0.8rem;
+      font-size: 0.85rem;
       font-weight: 600;
       color: var(--muted);
       display: block;
-      margin-bottom: 0.15rem;
+      margin-bottom: 0.3rem;
     }
 
     input, textarea {
       width: 100%;
       border-radius: 0.7rem;
       border: 1px solid rgba(148, 163, 184, 0.4);
-      padding: 0.55rem 0.7rem;
-      font-size: 0.9rem;
+      padding: 0.7rem 0.9rem;
+      font-size: 0.95rem;
       font-family: inherit;
       background: #ffffff;
       transition: all var(--transition-base);
@@ -771,7 +942,7 @@
     }
 
     textarea {
-      min-height: 110px;
+      min-height: 130px;
       resize: vertical;
     }
 
@@ -788,7 +959,7 @@
     .error-message {
       color: #ef4444;
       font-size: 0.75rem;
-      margin-top: 0.25rem;
+      margin-top: 0.3rem;
       display: none;
     }
 
@@ -818,8 +989,8 @@
       position: fixed;
       bottom: 2rem;
       right: 2rem;
-      width: 48px;
-      height: 48px;
+      width: 50px;
+      height: 50px;
       border-radius: 50%;
       background: var(--blue);
       color: white;
@@ -856,9 +1027,10 @@
 
     footer {
       border-top: 1px solid rgba(148, 163, 184, 0.4);
-      padding: 1.2rem 1.25rem 1.4rem;
-      font-size: 0.8rem;
+      padding: 2rem 1.25rem;
+      font-size: 0.85rem;
       color: var(--muted);
+      background: white;
     }
 
     footer .inner {
@@ -906,7 +1078,7 @@
        RESPONSIVE
     ============================================================ */
 
-    @media (max-width: 960px) {
+    @media (max-width: 1024px) {
       :root {
         --header-height: 64px;
       }
@@ -915,8 +1087,13 @@
         grid-template-columns: 1fr;
       }
 
-      .hero-card {
-        margin-top: 1.5rem;
+      .split-section {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+
+      .split-section.reverse {
+        direction: ltr;
       }
 
       .timeline {
@@ -929,6 +1106,10 @@
 
       .grid-4 {
         grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
       }
 
       .contact {
@@ -978,17 +1159,12 @@
         height: 48px;
       }
 
-      .hero {
-        padding: 2rem 1.5rem;
-        min-height: 360px;
-      }
-
       .hero-title {
-        font-size: 2rem;
+        font-size: 2.2rem;
       }
 
       .hero-subtitle {
-        font-size: 0.95rem;
+        font-size: 1rem;
       }
 
       .hero-card-grid {
@@ -996,18 +1172,19 @@
       }
 
       .section-title {
-        font-size: 1.6rem;
+        font-size: 1.8rem;
       }
 
       .grid-2,
       .grid-3,
       .grid-4,
-      .timeline {
+      .timeline,
+      .stats-grid {
         grid-template-columns: minmax(0, 1fr);
       }
 
-      main {
-        padding-top: 1.5rem;
+      section {
+        padding: 3rem 0;
       }
 
       .scroll-to-top {
@@ -1015,6 +1192,10 @@
         right: 1.5rem;
         width: 44px;
         height: 44px;
+      }
+
+      .section-image img {
+        min-height: 300px;
       }
     }
 
@@ -1073,440 +1254,536 @@
 
   <!-- HERO -------------------------------------------------------->
   <section id="home" class="hero-section" aria-label="Hero section">
-    <div class="hero">
+    <div class="hero-bg">
+      <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=2000&q=80" alt="Technology background" />
+    </div>
 
-      <div>
-        <div class="hero-kicker">Startup Studio for Critical Technologies</div>
+    <div class="hero-content">
+      <div class="container">
+        <div class="hero">
+          <div>
+            <div class="hero-kicker">Startup Studio for Critical Technologies</div>
 
-        <h1 class="hero-title">Together, we build what capital alone cannot create.</h1>
+            <h1 class="hero-title">Together, we build what capital alone cannot create.</h1>
 
-        <p class="hero-subtitle">
-          McCann Perkins is a startup studio for deep-tech and sovereign innovation.
-          We join as real partners — not passive investors.
-        </p>
+            <p class="hero-subtitle">
+              McCann Perkins is a startup studio for deep-tech and sovereign innovation.
+              We join as real partners — not passive investors.
+            </p>
 
-        <div class="hero-actions">
-          <button class="btn-primary" onclick="scrollToContact()">
-            Start your venture
-          </button>
-          <button class="btn-ghost" onclick="scrollToSection('about')">
-            Learn more
-          </button>
+            <div class="hero-actions">
+              <button class="btn-primary" onclick="scrollToContact()">
+                Start your venture
+              </button>
+              <button class="btn-ghost" onclick="scrollToSection('about')">
+                Learn more
+              </button>
+            </div>
+
+            <p class="hero-footnote">
+              Based in North America, working with founders, corporate partners, and investors across critical sectors.
+            </p>
+          </div>
+
+          <aside class="hero-card" aria-label="Studio snapshot">
+            <div class="hero-badge">
+              <span class="hero-badge-dot"></span>
+              Deep-tech Startup Studio
+            </div>
+
+            <div class="hero-card-title">
+              We bring the co-founders you can't hire yet.
+            </div>
+
+            <div class="hero-card-grid">
+              <div class="hero-pill">
+                <span>Capital</span>
+                Strategic C-level leadership instead of passive funding.
+              </div>
+              <div class="hero-pill">
+                <span>Focus</span>
+                Cybersecurity, quantum, sovereign infrastructure, sustainable AI.
+              </div>
+              <div class="hero-pill">
+                <span>Model</span>
+                Long-term, hands-on involvement from day one.
+              </div>
+              <div class="hero-pill">
+                <span>Outcome</span>
+                Anti-fragile companies built to last.
+              </div>
+            </div>
+          </aside>
         </div>
-
-        <p class="hero-footnote">
-          Based in North America, working with founders, corporate partners, and investors across critical sectors.
-        </p>
       </div>
-
-      <aside class="hero-card" aria-label="Studio snapshot">
-        <div class="hero-badge">
-          <span class="hero-badge-dot"></span>
-          Deep-tech Startup Studio
-        </div>
-
-        <div class="hero-card-title">
-          We bring the co-founders you can't hire yet.
-        </div>
-
-        <div class="hero-card-grid">
-          <div class="hero-pill">
-            <span>Capital</span>
-            Strategic C-level leadership instead of passive funding.
-          </div>
-          <div class="hero-pill">
-            <span>Focus</span>
-            Cybersecurity, quantum, sovereign infrastructure, sustainable AI.
-          </div>
-          <div class="hero-pill">
-            <span>Model</span>
-            Long-term, hands-on involvement from day one.
-          </div>
-          <div class="hero-pill">
-            <span>Outcome</span>
-            Anti-fragile companies built to last.
-          </div>
-        </div>
-      </aside>
-
     </div>
   </section>
 
   <!-- PROBLEM ----------------------------------------------------->
-  <section id="problem" class="fade-in">
-    <div class="section-label">The problem</div>
-    <h2 class="section-title">Why tech startups fail — even with funding</h2>
-    <p class="section-intro">
-      Too many deep-tech and critical-infrastructure startups collapse not because the idea is weak,
-      but because the founding team is alone when execution gets hard.
-    </p>
+  <section id="problem">
+    <div class="container">
+      <div class="fade-in">
+        <div class="section-label">The problem</div>
+        <h2 class="section-title">Why tech startups fail — even with funding</h2>
+        <p class="section-intro">
+          Too many deep-tech and critical-infrastructure startups collapse not because the idea is weak,
+          but because the founding team is alone when execution gets hard.
+        </p>
+      </div>
 
-    <div class="grid-2">
-      <div class="card fade-in">
-        <h3>Capital without commitment</h3>
-        <p>
-          Traditional investors deploy money, not execution. Once the round is closed, founders face
-          strategic, technical, and operational decisions without a true partner at the table.
-        </p>
-      </div>
-      <div class="card fade-in fade-in-delay-1">
-        <h3>Speed over substance</h3>
-        <p>
-          Deep technologies mature over years, not quarters. Pressure for rapid growth and fast returns
-          often clashes with the time needed to validate, certify, and industrialize.
-        </p>
-      </div>
-      <div class="card fade-in fade-in-delay-2">
-        <h3>Founders left isolated</h3>
-        <p>
-          Entrepreneurs are expected to recruit, structure, execute, and fundraise all at once —
-          while lacking the senior C-level support required to build a real company.
-        </p>
-      </div>
-      <div class="card fade-in fade-in-delay-3">
-        <h3>No room for error</h3>
-        <p>
-          In cybersecurity, quantum, or sovereign infrastructure, mistakes are expensive.
-          Poor governance, fragile architecture, or rushed go-to-market can kill a project before it scales.
-        </p>
+      <div class="grid-2">
+        <div class="card-with-image fade-in">
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=800&q=80" alt="Investment concept" />
+          </div>
+          <h3>Capital without commitment</h3>
+          <p>
+            Traditional investors deploy money, not execution. Once the round is closed, founders face
+            strategic, technical, and operational decisions without a true partner at the table.
+          </p>
+        </div>
+        <div class="card-with-image fade-in fade-in-delay-1">
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" alt="Speed and growth charts" />
+          </div>
+          <h3>Speed over substance</h3>
+          <p>
+            Deep technologies mature over years, not quarters. Pressure for rapid growth and fast returns
+            often clashes with the time needed to validate, certify, and industrialize.
+          </p>
+        </div>
+        <div class="card-with-image fade-in fade-in-delay-2">
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?auto=format&fit=crop&w=800&q=80" alt="Isolated founder" />
+          </div>
+          <h3>Founders left isolated</h3>
+          <p>
+            Entrepreneurs are expected to recruit, structure, execute, and fundraise all at once —
+            while lacking the senior C-level support required to build a real company.
+          </p>
+        </div>
+        <div class="card-with-image fade-in fade-in-delay-3">
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80" alt="Critical infrastructure" />
+          </div>
+          <h3>No room for error</h3>
+          <p>
+            In cybersecurity, quantum, or sovereign infrastructure, mistakes are expensive.
+            Poor governance, fragile architecture, or rushed go-to-market can kill a project before it scales.
+          </p>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- ABOUT / APPROACH -------------------------------------------->
-  <section id="about" class="fade-in">
-    <div class="section-label">Our approach</div>
-    <h2 class="section-title">We build with committed allies, not capital alone.</h2>
-    <p class="section-intro">
-      Founded in 2006, McCann Perkins is an internationally oriented startup studio focused on founders in critical
-      technologies. After more than 15 years working alongside bold entrepreneurs, we chose to anchor our work in
-      North America to support sovereign, sustainable, and strategic innovation.
-    </p>
+  <section id="about" class="section-with-image">
+    <div class="container">
+      <div class="split-section fade-in">
+        <div>
+          <div class="section-label">Our approach</div>
+          <h2 class="section-title">We build with committed allies, not capital alone.</h2>
+          <p class="section-intro">
+            Founded in 2006, McCann Perkins is an internationally oriented startup studio focused on founders in critical
+            technologies. After more than 15 years working alongside bold entrepreneurs, we chose to anchor our work in
+            North America to support sovereign, sustainable, and strategic innovation.
+          </p>
 
-    <div class="grid-2">
-      <div class="card fade-in">
-        <h3>Who we are</h3>
-        <p>
-          We are not a venture fund. We do not deploy cash. Instead, we invest our time, experience, and
-          operational firepower to turn strong concepts into resilient companies with real foundations.
-        </p>
-        <p style="margin-top:0.4rem;">
-          From legal structuring to technical architecture and governance, we help founders move from idea to
-          "real company" stage with rigor and discipline.
-        </p>
-      </div>
-      <div class="card fade-in fade-in-delay-1">
-        <h3>Our promise</h3>
-        <p><strong>Strategic mind.</strong> Seasoned C-level executives involved weekly in your key decisions.</p>
-        <p><strong>Strong foundations.</strong> Governance, operations, and infrastructure built to last.</p>
-        <p><strong>Hands-on team.</strong> Not mission-based consultants, but partners who commit for the long term.</p>
-        <p><strong>Key partners.</strong> A selective network of industrial and institutional allies, never random intros.</p>
+          <div class="grid-2">
+            <div class="card">
+              <h3>Who we are</h3>
+              <p>
+                We are not a venture fund. We do not deploy cash. Instead, we invest our time, experience, and
+                operational firepower to turn strong concepts into resilient companies with real foundations.
+              </p>
+              <p style="margin-top:0.4rem;">
+                From legal structuring to technical architecture and governance, we help founders move from idea to
+                "real company" stage with rigor and discipline.
+              </p>
+            </div>
+            <div class="card">
+              <h3>Our promise</h3>
+              <p><strong>Strategic mind.</strong> Seasoned C-level executives involved weekly in your key decisions.</p>
+              <p><strong>Strong foundations.</strong> Governance, operations, and infrastructure built to last.</p>
+              <p><strong>Hands-on team.</strong> Not mission-based consultants, but partners who commit for the long term.</p>
+              <p><strong>Key partners.</strong> A selective network of industrial and institutional allies, never random intros.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-image fade-in fade-in-delay-1">
+          <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=800&q=80" alt="Team collaboration" />
+        </div>
       </div>
     </div>
   </section>
 
   <!-- WHO WE WORK WITH -------------------------------------------->
-  <section id="who" class="fade-in">
-    <div class="section-label">Who we work with</div>
-    <h2 class="section-title">A studio for those who want to build seriously, not chase trends.</h2>
-    <p class="section-intro">
-      We work with founders and partners who are ready to engage deeply—on technology, execution, and long-term impact.
-    </p>
+  <section id="who" class="section-dark">
+    <div class="container">
+      <div class="fade-in">
+        <div class="section-label">Who we work with</div>
+        <h2 class="section-title">A studio for those who want to build seriously, not chase trends.</h2>
+        <p class="section-intro">
+          We work with founders and partners who are ready to engage deeply—on technology, execution, and long-term impact.
+        </p>
+      </div>
 
-    <div class="grid-4">
-      <div class="card fade-in">
-        <div class="card-tag">
-          <span class="card-tag-dot"></span>01
+      <div class="grid-4">
+        <div class="card fade-in">
+          <div class="card-tag">
+            <span class="card-tag-dot"></span>01
+          </div>
+          <h3>Ambitious founders</h3>
+          <p>
+            You have a bold vision and unique expertise, but limited resources to structure, secure, and launch your
+            project. We help you lay the foundation for a real company.
+          </p>
         </div>
-        <h3>Ambitious founders</h3>
-        <p>
-          You have a bold vision and unique expertise, but limited resources to structure, secure, and launch your
-          project. We help you lay the foundation for a real company.
-        </p>
-      </div>
-      <div class="card fade-in fade-in-delay-1">
-        <div class="card-tag">
-          <span class="card-tag-dot"></span>02
+        <div class="card fade-in fade-in-delay-1">
+          <div class="card-tag">
+            <span class="card-tag-dot"></span>02
+          </div>
+          <h3>Spin-offs & business pivots</h3>
+          <p>
+            Emerging from a lab, a corporate unit, or an abandoned project? We help transform prototypes and
+            internal initiatives into standalone ventures.
+          </p>
         </div>
-        <h3>Spin-offs & business pivots</h3>
-        <p>
-          Emerging from a lab, a corporate unit, or an abandoned project? We help transform prototypes and
-          internal initiatives into standalone ventures.
-        </p>
-      </div>
-      <div class="card fade-in fade-in-delay-2">
-        <div class="card-tag">
-          <span class="card-tag-dot"></span>03
+        <div class="card fade-in fade-in-delay-2">
+          <div class="card-tag">
+            <span class="card-tag-dot"></span>03
+          </div>
+          <h3>Corporate partners</h3>
+          <p>
+            You want to engage in innovation differently. We provide a curated, structured dealflow and co-build
+            ventures aligned with your strategic priorities.
+          </p>
         </div>
-        <h3>Corporate partners</h3>
-        <p>
-          You want to engage in innovation differently. We provide a curated, structured dealflow and co-build
-          ventures aligned with your strategic priorities.
-        </p>
-      </div>
-      <div class="card fade-in fade-in-delay-3">
-        <div class="card-tag">
-          <span class="card-tag-dot"></span>04
+        <div class="card fade-in fade-in-delay-3">
+          <div class="card-tag">
+            <span class="card-tag-dot"></span>04
+          </div>
+          <h3>Discerning investors</h3>
+          <p>
+            You look for serious, supported projects from day one. Our studio acts as a rigorous selection gateway:
+            we only bring forward what truly stands.
+          </p>
         </div>
-        <h3>Discerning investors</h3>
-        <p>
-          You look for serious, supported projects from day one. Our studio acts as a rigorous selection gateway:
-          we only bring forward what truly stands.
-        </p>
       </div>
     </div>
   </section>
 
   <!-- VISION & MISSION -------------------------------------------->
-  <section id="vision" class="fade-in">
-    <div class="section-label">Vision & Mission</div>
-    <h2 class="section-title">A different kind of capital for a different era.</h2>
-    <p class="section-intro">
-      Human capital—time, critical expertise, and unwavering alignment—is now the scarcest resource in company
-      building. Our studio is designed to deploy exactly that, where it matters most.
-    </p>
+  <section id="vision" class="section-with-image">
+    <div class="container">
+      <div class="split-section reverse fade-in">
+        <div>
+          <div class="section-label">Vision & Mission</div>
+          <h2 class="section-title">A different kind of capital for a different era.</h2>
+          <p class="section-intro">
+            Human capital—time, critical expertise, and unwavering alignment—is now the scarcest resource in company
+            building. Our studio is designed to deploy exactly that, where it matters most.
+          </p>
 
-    <div class="grid-3">
-      <div class="card fade-in">
-        <h3>Vision</h3>
-        <p>
-          We believe the most resilient companies are built on trust, depth, and uncompromising support. Our
-          vision is to make this kind of capital accessible to founders in critical technologies.
-        </p>
-      </div>
-      <div class="card fade-in fade-in-delay-1">
-        <h3>Mission</h3>
-        <p>
-          We co-found ambitious, purposeful startups with committed entrepreneurs. Our teams bring together the
-          strategic, technical, and operational capabilities required to move from idea to durable company.
-        </p>
-      </div>
-      <div class="card fade-in fade-in-delay-2">
-        <h3>Standards</h3>
-        <p>
-          We do not multiply projects for the sake of volume. Each collaboration is a long-term partnership built
-          on trust, shared values, and clear alignment on the way we execute.
-        </p>
+          <div class="grid-3">
+            <div class="card">
+              <h3>Vision</h3>
+              <p>
+                We believe the most resilient companies are built on trust, depth, and uncompromising support. Our
+                vision is to make this kind of capital accessible to founders in critical technologies.
+              </p>
+            </div>
+            <div class="card">
+              <h3>Mission</h3>
+              <p>
+                We co-found ambitious, purposeful startups with committed entrepreneurs. Our teams bring together the
+                strategic, technical, and operational capabilities required to move from idea to durable company.
+              </p>
+            </div>
+            <div class="card">
+              <h3>Standards</h3>
+              <p>
+                We do not multiply projects for the sake of volume. Each collaboration is a long-term partnership built
+                on trust, shared values, and clear alignment on the way we execute.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-image fade-in fade-in-delay-1">
+          <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=80" alt="Vision and strategy" />
+        </div>
       </div>
     </div>
   </section>
 
   <!-- EXPERTISE --------------------------------------------------->
-  <section id="expertise" class="fade-in">
-    <div class="section-label">Core expertise</div>
-    <h2 class="section-title">Where we build: cybersecurity, quantum, and sustainable AI.</h2>
-    <p class="section-intro">
-      McCann Perkins focuses on critical technologies with structural impact: securing data, enabling sovereign
-      infrastructure, and accelerating the green transition.
-    </p>
+  <section id="expertise">
+    <div class="container">
+      <div class="split-section fade-in">
+        <div>
+          <div class="section-label">Core expertise</div>
+          <h2 class="section-title">Where we build: cybersecurity, quantum, and sustainable AI.</h2>
+          <p class="section-intro">
+            McCann Perkins focuses on critical technologies with structural impact: securing data, enabling sovereign
+            infrastructure, and accelerating the green transition.
+          </p>
 
-    <div class="grid-2">
-      <div class="card fade-in">
-        <h3>Cybersecurity & Quantum Computing</h3>
-        <p>
-          • Safeguarding critical and sensitive data<br />
-          • Quantum computing and hybrid classical/quantum architectures<br />
-          • Post-quantum cryptography and quantum-resistant design<br />
-          • Quantum communication and secure infrastructure
-        </p>
-      </div>
-      <div class="card fade-in fade-in-delay-1">
-        <h3>Purpose-led Deep Tech & Sustainable AI</h3>
-        <p>
-          • Technologies that support the green transition and decarbonization<br />
-          • Efficient, frugal, and ethically trained AI models<br />
-          • Circular and transparent value chains for digital infrastructure<br />
-          • Construction, infrastructure, and industrial applications
-        </p>
+          <div class="grid-2">
+            <div class="card">
+              <h3>Cybersecurity & Quantum Computing</h3>
+              <p>
+                • Safeguarding critical and sensitive data<br />
+                • Quantum computing and hybrid classical/quantum architectures<br />
+                • Post-quantum cryptography and quantum-resistant design<br />
+                • Quantum communication and secure infrastructure
+              </p>
+            </div>
+            <div class="card">
+              <h3>Purpose-led Deep Tech & Sustainable AI</h3>
+              <p>
+                • Technologies that support the green transition and decarbonization<br />
+                • Efficient, frugal, and ethically trained AI models<br />
+                • Circular and transparent value chains for digital infrastructure<br />
+                • Construction, infrastructure, and industrial applications
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-image fade-in fade-in-delay-1">
+          <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=800&q=80" alt="Quantum computing and cybersecurity" />
+        </div>
       </div>
     </div>
   </section>
 
   <!-- SERVICES ---------------------------------------------------->
-  <section id="services" class="fade-in">
-    <div class="section-label">Services</div>
-    <h2 class="section-title">Giving founders access to what they can't secure alone at the start.</h2>
-    <p class="section-intro">
-      Our studio combines mentorship, structuring, and hands-on execution. We join as co-founders, not outside
-      consultants.
-    </p>
+  <section id="services" class="section-dark">
+    <div class="container">
+      <div class="fade-in">
+        <div class="section-label">Services</div>
+        <h2 class="section-title">Giving founders access to what they can't secure alone at the start.</h2>
+        <p class="section-intro">
+          Our studio combines mentorship, structuring, and hands-on execution. We join as co-founders, not outside
+          consultants.
+        </p>
+      </div>
 
-    <div class="grid-3">
-      <div class="card fade-in">
-        <h3>Mentorship</h3>
-        <p>
-          High-level strategic guidance from experienced CEOs, CTOs, COOs, and CISOs who understand both deep-tech
-          realities and investor expectations.
-        </p>
-      </div>
-      <div class="card fade-in fade-in-delay-1">
-        <h3>Structuration</h3>
-        <p>
-          Bespoke legal and business structuring: governance models, cap tables, shareholder agreements, and
-          operating frameworks designed for longevity.
-        </p>
-      </div>
-      <div class="card fade-in fade-in-delay-2">
-        <h3>IT advisory</h3>
-        <p>
-          Architecture reviews, infrastructure choices, and cybersecurity hardening so that technical foundations
-          support—not constrain—future growth.
-        </p>
-      </div>
-      <div class="card fade-in">
-        <h3>Matching</h3>
-        <p>
-          Helping founders build strong founding teams and connect with the right co-founders, advisors, and
-          industrial partners from our network.
-        </p>
-      </div>
-      <div class="card fade-in fade-in-delay-1">
-        <h3>Operational maturity</h3>
-        <p>
-          From day one, we help define processes, tools, and roles so operations can scale without chaos as the
-          first customers and partners come on board.
-        </p>
-      </div>
-      <div class="card fade-in fade-in-delay-2">
-        <h3>Fractional C-Level</h3>
-        <p>
-          We bring in seasoned C-level leaders who act as true co-founders on a flexible basis, giving startups
-          access to senior talent they could not yet hire full-time.
-        </p>
+      <div class="grid-3">
+        <div class="card-with-image fade-in">
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=800&q=80" alt="Mentorship" />
+          </div>
+          <h3>Mentorship</h3>
+          <p>
+            High-level strategic guidance from experienced CEOs, CTOs, COOs, and CISOs who understand both deep-tech
+            realities and investor expectations.
+          </p>
+        </div>
+        <div class="card-with-image fade-in fade-in-delay-1">
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=800&q=80" alt="Business structuring" />
+          </div>
+          <h3>Structuration</h3>
+          <p>
+            Bespoke legal and business structuring: governance models, cap tables, shareholder agreements, and
+            operating frameworks designed for longevity.
+          </p>
+        </div>
+        <div class="card-with-image fade-in fade-in-delay-2">
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80" alt="IT infrastructure" />
+          </div>
+          <h3>IT advisory</h3>
+          <p>
+            Architecture reviews, infrastructure choices, and cybersecurity hardening so that technical foundations
+            support—not constrain—future growth.
+          </p>
+        </div>
+        <div class="card-with-image fade-in">
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=800&q=80" alt="Team matching" />
+          </div>
+          <h3>Matching</h3>
+          <p>
+            Helping founders build strong founding teams and connect with the right co-founders, advisors, and
+            industrial partners from our network.
+          </p>
+        </div>
+        <div class="card-with-image fade-in fade-in-delay-1">
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80" alt="Operational processes" />
+          </div>
+          <h3>Operational maturity</h3>
+          <p>
+            From day one, we help define processes, tools, and roles so operations can scale without chaos as the
+            first customers and partners come on board.
+          </p>
+        </div>
+        <div class="card-with-image fade-in fade-in-delay-2">
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=800&q=80" alt="Executive leadership" />
+          </div>
+          <h3>Fractional C-Level</h3>
+          <p>
+            We bring in seasoned C-level leaders who act as true co-founders on a flexible basis, giving startups
+            access to senior talent they could not yet hire full-time.
+          </p>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- METHOD ------------------------------------------------------>
-  <section id="method" class="fade-in">
-    <div class="section-label">Method</div>
-    <h2 class="section-title">The Dual Loop: from opportunity to company.</h2>
-    <p class="section-intro">
-      Our proprietary Dual Loop method helps transform real-world needs into validated ventures, combining
-      disciplined exploration with fast, concrete execution.
-    </p>
+  <section id="method" class="section-with-image">
+    <div class="container">
+      <div class="split-section reverse fade-in">
+        <div>
+          <div class="section-label">Method</div>
+          <h2 class="section-title">The Dual Loop: from opportunity to company.</h2>
+          <p class="section-intro">
+            Our proprietary Dual Loop method helps transform real-world needs into validated ventures, combining
+            disciplined exploration with fast, concrete execution.
+          </p>
 
-    <div class="grid-2">
-      <div class="card fade-in">
-        <h3>Deep Dive</h3>
-        <p>
-          We start with a focused exploration of concrete use cases grounded in industrial reality. Together we
-          validate market potential, regulatory constraints, and technological feasibility before writing a
-          single line of code.
-        </p>
-      </div>
-      <div class="card fade-in fade-in-delay-1">
-        <h3>Fast Forge</h3>
-        <p>
-          In the second loop, we turn selected opportunities into prototypes at speed. By leveraging hybrid
-          classical/quantum tools and pilot partners, we accelerate proof of usefulness and shorten incubation
-          cycles dramatically.
-        </p>
+          <div class="grid-2">
+            <div class="card">
+              <h3>Deep Dive</h3>
+              <p>
+                We start with a focused exploration of concrete use cases grounded in industrial reality. Together we
+                validate market potential, regulatory constraints, and technological feasibility before writing a
+                single line of code.
+              </p>
+            </div>
+            <div class="card">
+              <h3>Fast Forge</h3>
+              <p>
+                In the second loop, we turn selected opportunities into prototypes at speed. By leveraging hybrid
+                classical/quantum tools and pilot partners, we accelerate proof of usefulness and shorten incubation
+                cycles dramatically.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-image fade-in fade-in-delay-1">
+          <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=800&q=80" alt="Dual loop methodology" />
+        </div>
       </div>
     </div>
   </section>
 
   <!-- VENTURE JOURNEY --------------------------------------------->
-  <section id="journey" class="fade-in">
-    <div class="section-label">Venture Journey</div>
-    <h2 class="section-title">From first conversation to independent company.</h2>
-    <p class="section-intro">
-      We stay involved from alignment to launch, and beyond. Our role evolves as the company gains traction and
-      autonomy.
-    </p>
+  <section id="journey">
+    <div class="container">
+      <div class="fade-in">
+        <div class="section-label">Venture Journey</div>
+        <h2 class="section-title">From first conversation to independent company.</h2>
+        <p class="section-intro">
+          We stay involved from alignment to launch, and beyond. Our role evolves as the company gains traction and
+          autonomy.
+        </p>
+      </div>
 
-    <div class="timeline">
-      <div class="timeline-step fade-in">
-        <span>Weeks 0–4</span>
-        <h3>Align – Strategic Framing & Commitment</h3>
-        <ul>
-          <li>Diagnostic of founding team and market context</li>
-          <li>Vision, roles, and governance clarified</li>
-          <li>Engagement pact and equity framework outlined</li>
-          <li>Initial roadmap and milestones defined</li>
-        </ul>
-      </div>
-      <div class="timeline-step fade-in fade-in-delay-1">
-        <span>Months 1–3</span>
-        <h3>Build – Structure, Product & Positioning</h3>
-        <ul>
-          <li>Legal and business foundations put in place</li>
-          <li>Core offer and value proposition refined</li>
-          <li>Technical architecture and security baseline designed</li>
-          <li>Brand identity and narrative created</li>
-        </ul>
-      </div>
-      <div class="timeline-step fade-in fade-in-delay-2">
-        <span>Months 4–8</span>
-        <h3>Launch – MVP, Clients & First Revenue</h3>
-        <ul>
-          <li>MVP delivered and tested with early adopters</li>
-          <li>First commercial traction and feedback loops</li>
-          <li>Investor-ready materials prepared</li>
-          <li>Day-to-day execution supported by our team</li>
-        </ul>
-      </div>
-      <div class="timeline-step fade-in fade-in-delay-3">
-        <span>Months 9–12+</span>
-        <h3>Scale or Transition – Traction & Growth</h3>
-        <ul>
-          <li>Funding or strategic partnerships secured</li>
-          <li>Team reinforced for independence</li>
-          <li>Our role shifts to board-level partner or advisor</li>
-          <li>Long-term governance and strategy maintained</li>
-        </ul>
+      <div class="timeline">
+        <div class="timeline-step fade-in">
+          <span>Weeks 0–4</span>
+          <h3>Align – Strategic Framing & Commitment</h3>
+          <ul>
+            <li>Diagnostic of founding team and market context</li>
+            <li>Vision, roles, and governance clarified</li>
+            <li>Engagement pact and equity framework outlined</li>
+            <li>Initial roadmap and milestones defined</li>
+          </ul>
+        </div>
+        <div class="timeline-step fade-in fade-in-delay-1">
+          <span>Months 1–3</span>
+          <h3>Build – Structure, Product & Positioning</h3>
+          <ul>
+            <li>Legal and business foundations put in place</li>
+            <li>Core offer and value proposition refined</li>
+            <li>Technical architecture and security baseline designed</li>
+            <li>Brand identity and narrative created</li>
+          </ul>
+        </div>
+        <div class="timeline-step fade-in fade-in-delay-2">
+          <span>Months 4–8</span>
+          <h3>Launch – MVP, Clients & First Revenue</h3>
+          <ul>
+            <li>MVP delivered and tested with early adopters</li>
+            <li>First commercial traction and feedback loops</li>
+            <li>Investor-ready materials prepared</li>
+            <li>Day-to-day execution supported by our team</li>
+          </ul>
+        </div>
+        <div class="timeline-step fade-in fade-in-delay-3">
+          <span>Months 9–12+</span>
+          <h3>Scale or Transition – Traction & Growth</h3>
+          <ul>
+            <li>Funding or strategic partnerships secured</li>
+            <li>Team reinforced for independence</li>
+            <li>Our role shifts to board-level partner or advisor</li>
+            <li>Long-term governance and strategy maintained</li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- CONTACT ----------------------------------------------------->
-  <section id="contact" class="fade-in">
-    <div class="section-label">Contact</div>
-    <h2 class="section-title">Let's explore what we could build together.</h2>
-    <p class="section-intro">
-      If you're working on cybersecurity, quantum, sovereign infrastructure, or sustainable AI — and you're
-      looking for committed co-founders rather than just funding — we'd be glad to talk.
-    </p>
-
-    <div class="contact">
-      <div class="contact-card fade-in">
-        <h3>Studio coordinates</h3>
-        <p>
-          We work with founders, corporate partners, and investors across North America and Europe.
+  <section id="contact" class="section-with-image">
+    <div class="container">
+      <div class="fade-in">
+        <div class="section-label">Contact</div>
+        <h2 class="section-title">Let's explore what we could build together.</h2>
+        <p class="section-intro">
+          If you're working on cybersecurity, quantum, sovereign infrastructure, or sustainable AI — and you're
+          looking for committed co-founders rather than just funding — we'd be glad to talk.
         </p>
-        <ul class="contact-list">
-          <li><strong>Address</strong><br />2915 Ogletown Rd, Newark, DE 19713, United States</li>
-          <li><strong>Website</strong><br /><a href="https://www.mccannperkins.com" target="_blank" rel="noopener">www.mccannperkins.com</a></li>
-          <li><strong>Typical first step</strong><br />A 45-minute conversation to understand your project, constraints, and ambitions.</li>
-        </ul>
       </div>
 
-      <div class="fade-in fade-in-delay-1">
-        <form id="contactForm" novalidate>
-          <div class="form-group">
-            <label for="name">Name <span aria-label="required">*</span></label>
-            <input id="name" name="name" type="text" placeholder="Your name" required aria-required="true" />
-            <div class="error-message" id="nameError">Please enter your name</div>
-          </div>
-          <div class="form-group">
-            <label for="email">Email <span aria-label="required">*</span></label>
-            <input id="email" name="email" type="email" placeholder="you@company.com" required aria-required="true" />
-            <div class="error-message" id="emailError">Please enter a valid email address</div>
-          </div>
-          <div class="form-group">
-            <label for="role">Your role</label>
-            <input id="role" name="role" type="text" placeholder="Founder, investor, corporate partner…" />
-          </div>
-          <div class="form-group">
-            <label for="message">Project or question <span aria-label="required">*</span></label>
-            <textarea id="message" name="message" placeholder="Tell us more about what you're building, and where you might need a co-founder." required aria-required="true"></textarea>
-            <div class="error-message" id="messageError">Please tell us about your project</div>
-          </div>
-          <div class="form-success" id="formSuccess">
-            ✓ Thank you! We'll get back to you within 48 hours.
-          </div>
-          <button type="submit" class="btn-primary">Send message</button>
-        </form>
+      <div class="contact">
+        <div class="contact-card fade-in">
+          <h3>Studio coordinates</h3>
+          <p>
+            We work with founders, corporate partners, and investors across North America and Europe.
+          </p>
+          <ul class="contact-list">
+            <li><strong>Address</strong><br />2915 Ogletown Rd, Newark, DE 19713, United States</li>
+            <li><strong>Website</strong><br /><a href="https://www.mccannperkins.com" target="_blank" rel="noopener">www.mccannperkins.com</a></li>
+            <li><strong>Typical first step</strong><br />A 45-minute conversation to understand your project, constraints, and ambitions.</li>
+          </ul>
+        </div>
+
+        <div class="fade-in fade-in-delay-1">
+          <form id="contactForm" novalidate>
+            <div class="form-group">
+              <label for="name">Name <span aria-label="required">*</span></label>
+              <input id="name" name="name" type="text" placeholder="Your name" required aria-required="true" />
+              <div class="error-message" id="nameError">Please enter your name</div>
+            </div>
+            <div class="form-group">
+              <label for="email">Email <span aria-label="required">*</span></label>
+              <input id="email" name="email" type="email" placeholder="you@company.com" required aria-required="true" />
+              <div class="error-message" id="emailError">Please enter a valid email address</div>
+            </div>
+            <div class="form-group">
+              <label for="role">Your role</label>
+              <input id="role" name="role" type="text" placeholder="Founder, investor, corporate partner…" />
+            </div>
+            <div class="form-group">
+              <label for="message">Project or question <span aria-label="required">*</span></label>
+              <textarea id="message" name="message" placeholder="Tell us more about what you're building, and where you might need a co-founder." required aria-required="true"></textarea>
+              <div class="error-message" id="messageError">Please tell us about your project</div>
+            </div>
+            <div class="form-success" id="formSuccess">
+              ✓ Thank you! We'll get back to you within 48 hours.
+            </div>
+            <button type="submit" class="btn-primary">Send message</button>
+          </form>
+        </div>
       </div>
     </div>
   </section>
@@ -1537,12 +1814,9 @@
     navLinks.classList.toggle('active');
     const isExpanded = navLinks.classList.contains('active');
     menuToggle.setAttribute('aria-expanded', isExpanded);
-
-    // Prevent body scroll when menu is open
     document.body.style.overflow = isExpanded ? 'hidden' : '';
   });
 
-  // Close mobile menu when clicking a link
   navLinks.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => {
       menuToggle.classList.remove('active');
@@ -1552,7 +1826,6 @@
     });
   });
 
-  // Close mobile menu when clicking outside
   document.addEventListener('click', (e) => {
     if (!navLinks.contains(e.target) && !menuToggle.contains(e.target)) {
       menuToggle.classList.remove('active');
@@ -1654,13 +1927,11 @@
   contactForm.addEventListener('submit', (e) => {
     e.preventDefault();
 
-    // Reset previous errors
     document.querySelectorAll('.error-message').forEach(el => el.classList.remove('visible'));
     document.querySelectorAll('input, textarea').forEach(el => el.classList.remove('error'));
 
     let isValid = true;
 
-    // Name validation
     const name = document.getElementById('name');
     if (!name.value.trim()) {
       document.getElementById('nameError').classList.add('visible');
@@ -1668,7 +1939,6 @@
       isValid = false;
     }
 
-    // Email validation
     const email = document.getElementById('email');
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!email.value.trim() || !emailRegex.test(email.value)) {
@@ -1677,7 +1947,6 @@
       isValid = false;
     }
 
-    // Message validation
     const message = document.getElementById('message');
     if (!message.value.trim()) {
       document.getElementById('messageError').classList.add('visible');
@@ -1686,19 +1955,15 @@
     }
 
     if (isValid) {
-      // Here you would typically send the form data to a server
-      // For now, we'll just show a success message
       formSuccess.classList.add('visible');
       contactForm.reset();
 
-      // Hide success message after 5 seconds
       setTimeout(() => {
         formSuccess.classList.remove('visible');
       }, 5000);
     }
   });
 
-  // Remove error state on input
   document.querySelectorAll('input, textarea').forEach(field => {
     field.addEventListener('input', () => {
       field.classList.remove('error');
@@ -1725,7 +1990,6 @@
   // KEYBOARD NAVIGATION
   // ============================================================
   document.addEventListener('keydown', (e) => {
-    // Escape key closes mobile menu
     if (e.key === 'Escape' && navLinks.classList.contains('active')) {
       menuToggle.classList.remove('active');
       navLinks.classList.remove('active');
