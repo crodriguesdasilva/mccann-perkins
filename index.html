@@ -1,2613 +1,1459 @@
 <!DOCTYPE html>
-
-<html lang="en">
-
+<html lang="fr">
 <head>
-
   <meta charset="UTF-8" />
-
-  <title>McCann Perkins – Startup Studio for Critical Technologies</title>
-
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <meta name="description" content="Together, we build what capital alone cannot create. McCann Perkins is a startup studio that co-founds resilient companies in critical tech." />
-
- 
-
-  <!-- SEO -->
-
-  <meta name="keywords" content="startup studio, deep tech, cybersecurity, quantum computing, sustainable AI, venture building" />
-
-  <meta name="author" content="McCann Perkins" />
-
- 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quanthor - Cybermatérialité & Résilience Post-Quantique pour les Infrastructures Critiques</title>
+  <meta name="description" content="Quanthor : Vérité Embarquée, Souveraineté Garantie. Nous transformons chaque objet critique en garant autonome de sa propre authenticité." />
+  <meta name="keywords" content="cybersécurité, post-quantique, cybermatérialité, PUF, cryptographie, défense, aérospatial" />
 
   <!-- Open Graph -->
-
-  <meta property="og:title" content="McCann Perkins – Together, we build what capital alone cannot create" />
-
-  <meta property="og:description" content="A startup studio for critical technologies" />
-
+  <meta property="og:title" content="Quanthor - Cybermatérialité & Résilience Post-Quantique" />
+  <meta property="og:description" content="Vérité Embarquée, Souveraineté Garantie" />
   <meta property="og:type" content="website" />
 
-  <meta property="og:url" content="https://www.mccannperkins.com" />
-
- 
-
-  <!-- Favicon -->
-
-  <link rel="icon" type="image/png" href="favicon.png" />
-
- 
-
-  <link rel="preconnect" href="https://images.unsplash.com" />
-
- 
-
   <style>
-
     /* ============================================================
-
        VARIABLES & RESET
-
     ============================================================ */
-
     :root {
-
-      --primary-blue: #0057FF;
-
-      --dark-blue: #0041CC;
-
-      --light-blue: #3B82F6;
-
-      --primary-yellow: #FFD700;
-
-      --dark-yellow: #FFC700;
-
+      --primary-blue: #1E90FF;
+      --dark-blue: #0A2463;
+      --text-dark: #1A1A1A;
+      --text-muted: #6B7280;
+      --white: #FFFFFF;
+      --green-accent: #10B981;
       --bg-light: #F8F9FA;
 
-      --text-dark: #1A1A1A;
-
-      --text-muted: #6B7280;
-
-      --white: #FFFFFF;
-
- 
-
       --max-width: 1280px;
-
       --header-height: 70px;
 
- 
-
       --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
-
       --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
-
       --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.15);
 
- 
-
       --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-
     }
-
- 
 
     * {
-
       margin: 0;
-
       padding: 0;
-
       box-sizing: border-box;
-
     }
-
- 
 
     html {
-
       scroll-behavior: smooth;
-
       scroll-padding-top: var(--header-height);
-
     }
-
- 
 
     body {
-
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       color: var(--text-dark);
-
       line-height: 1.6;
-
       background: var(--white);
-
       overflow-x: hidden;
-
     }
-
- 
 
     a {
-
       color: inherit;
-
       text-decoration: none;
-
       transition: var(--transition);
-
     }
-
- 
 
     button {
-
       font-family: inherit;
-
       cursor: pointer;
-
       border: none;
-
       transition: var(--transition);
-
     }
-
- 
 
     img {
-
       max-width: 100%;
-
       height: auto;
-
       display: block;
-
     }
-
- 
 
     /* ============================================================
-
        HEADER
-
     ============================================================ */
-
- 
-
     header {
-
       position: fixed;
-
       top: 0;
-
       left: 0;
-
       right: 0;
-
       height: var(--header-height);
-
-      background: var(--white);
-
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
       border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-
       z-index: 1000;
-
       transition: var(--transition);
-
     }
-
- 
 
     header.scrolled {
-
       box-shadow: var(--shadow-md);
-
     }
-
- 
 
     .nav {
-
       max-width: var(--max-width);
-
       margin: 0 auto;
-
       padding: 0 2rem;
-
       height: 100%;
-
       display: flex;
-
       align-items: center;
-
       justify-content: space-between;
-
     }
-
- 
 
     .logo {
-
       display: flex;
-
       align-items: center;
-
       gap: 0.75rem;
-
-      font-size: 1.5rem;
-
+      font-size: 1.75rem;
       font-weight: 700;
-
-      color: var(--text-dark);
-
-   }
-
-    /* ✅ contrôle la taille du logo image du header ici */
-    .logo-img {
-    height: 50px;   /* diminue ou augmente cette valeur selon le rendu souhaité */
-    width: auto;
-    display: block;
-  }
-
- 
+      color: var(--primary-blue);
+    }
 
     .logo-circle {
-
-      width: 20px;
-
-      height: 20px;
-
-      background: var(--primary-yellow);
-
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue));
       border-radius: 50%;
-
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      font-size: 1.5rem;
     }
-
- 
 
     .nav-links {
-
       display: flex;
-
       gap: 2rem;
-
       align-items: center;
-
     }
-
- 
 
     .nav-links a {
-
       color: var(--text-muted);
-
       font-weight: 500;
-
       font-size: 0.95rem;
-
     }
-
- 
 
     .nav-links a:hover {
-
       color: var(--primary-blue);
-
     }
-
- 
 
     .menu-toggle {
-
       display: none;
-
       flex-direction: column;
-
       gap: 5px;
-
       background: transparent;
-
       padding: 0.5rem;
-
     }
-
- 
 
     .menu-toggle span {
-
       display: block;
-
       width: 25px;
-
       height: 2px;
-
       background: var(--text-dark);
-
       transition: var(--transition);
-
     }
-
- 
 
     /* ============================================================
-
        HERO SECTION
-
     ============================================================ */
-
- 
-
     .hero {
-
       margin-top: var(--header-height);
-
       min-height: 90vh;
-
-      background: var(--primary-blue);
-
-      display: grid;
-
-      grid-template-columns: 1fr 1fr;
-
+      background: linear-gradient(135deg, var(--dark-blue) 0%, var(--primary-blue) 100%);
+      display: flex;
       align-items: center;
-
       position: relative;
-
       overflow: hidden;
-
+      color: var(--white);
     }
 
-   .hero-centered {
-  text-align: center;
-  width: 100%;
-}
-
-.hero-title {
-  font-size: 2rem;
-  font-weight: 700;
-  line-height: 1.3;
-  margin: 0 auto;
-  max-width: 800px;
-}
-
-.white {
-  color: #ffffff !important;
-}
-
-.yellow {
-  color: var(--primary-yellow);
-}
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="100" height="100" patternUnits="userSpaceOnUse"><path d="M 100 0 L 0 0 0 100" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+      opacity: 0.3;
+    }
 
     .hero-content {
-
-      padding: 4rem 2rem 4rem 4rem;
-
-      color: var(--white);
-
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 4rem 2rem;
+      position: relative;
       z-index: 2;
-
+      text-align: center;
     }
-
- 
 
     .hero-logo {
-
       display: flex;
-
       align-items: center;
-
+      justify-content: center;
       gap: 1rem;
-
-      margin-bottom: 3rem;
-
+      margin-bottom: 2rem;
     }
-
- 
 
     .hero-logo-circle {
-
       width: 80px;
-
       height: 80px;
-
-      background: var(--primary-yellow);
-
+      background: var(--white);
       border-radius: 50%;
-
-    }
-
- 
-
-    .hero-logo-text h1 {
-
+      display: flex;
+      align-items: center;
+      justify-content: center;
       font-size: 3rem;
-
-      font-weight: 700;
-
-      line-height: 1;
-
+      position: relative;
+      box-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
     }
 
- 
+    .hero-logo-text {
+      font-size: 3.5rem;
+      font-weight: 700;
+      color: var(--white);
+    }
+
+    .hero-slogan {
+      font-size: 1.5rem;
+      font-weight: 300;
+      margin-bottom: 1rem;
+      opacity: 0.95;
+    }
+
+    .hero-mission {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      color: var(--green-accent);
+    }
 
     .hero-tagline {
-
-      font-size: 1.5rem;
-
-      font-weight: 300;
-
+      font-size: 1.1rem;
       margin-bottom: 2rem;
-
-      max-width: 500px;
-
+      opacity: 0.9;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
- 
-
-    .hero-image {
-
-      position: relative;
-
-      height: 100%;
-
-      overflow: hidden;
-
+    .badge-canada {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255, 255, 255, 0.2);
+      padding: 0.75rem 1.5rem;
+      border-radius: 50px;
+      font-weight: 600;
+      margin-bottom: 2rem;
+      backdrop-filter: blur(10px);
     }
 
- 
-
-    .hero-image img {
-
-      width: 100%;
-
-      height: 100%;
-
-      object-fit: cover;
-
+    .cta-button {
+      display: inline-block;
+      background: var(--white);
+      color: var(--primary-blue);
+      padding: 1rem 2.5rem;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      box-shadow: var(--shadow-lg);
+      transition: var(--transition);
     }
 
- 
+    .cta-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    }
 
     /* ============================================================
-
        SECTION STYLES
-
     ============================================================ */
-
- 
-
     .section {
-
       padding: 5rem 2rem;
-
     }
 
- 
-
-    .section-blue {
-
-      background: var(--primary-blue);
-
+    .section-dark {
+      background: var(--dark-blue);
       color: var(--white);
-
     }
-
- 
-
-    .section-white {
-
-      background: var(--white);
-
-      color: var(--text-dark);
-
-    }
-
- 
 
     .section-light {
-
       background: var(--bg-light);
-
       color: var(--text-dark);
-
     }
 
- 
+    .section-white {
+      background: var(--white);
+      color: var(--text-dark);
+    }
 
     .container {
-
       max-width: var(--max-width);
-
       margin: 0 auto;
-
     }
-
- 
 
     .section-title {
-
-      font-size: 3rem;
-
+      font-size: 2.5rem;
       font-weight: 700;
-
       margin-bottom: 1rem;
-
       line-height: 1.2;
-
     }
-
- 
 
     .section-subtitle {
-
       font-size: 1.25rem;
-
       margin-bottom: 3rem;
-
-      opacity: 0.9;
-
+      opacity: 0.85;
     }
 
- 
+    /* ============================================================
+       À PROPOS / MISSION
+    ============================================================ */
+    .about-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2.5rem;
+      margin-top: 3rem;
+    }
 
-    .icon-box {
+    .about-card {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 2rem;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+    }
 
-      width: 50px;
-
-      height: 50px;
-
-      background: var(--primary-yellow);
-
-      border-radius: 8px;
-
-      display: flex;
-
-      align-items: center;
-
-      justify-content: center;
-
+    .about-card h3 {
       font-size: 1.5rem;
-
-      margin-bottom: 1.5rem;
-
+      margin-bottom: 1rem;
+      color: var(--green-accent);
     }
 
- 
+    .about-card p {
+      line-height: 1.8;
+      opacity: 0.9;
+    }
 
     /* ============================================================
-
-       GRID LAYOUTS
-
-    ============================================================ */
-
- 
-
-    .grid-2 {
-
-      display: grid;
-
-      grid-template-columns: repeat(2, 1fr);
-
-      gap: 3rem;
-
-    }
-
- 
-
-    .grid-4 {
-
-      display: grid;
-
-      grid-template-columns: repeat(4, 1fr);
-
-      gap: 2rem;
-
-    }
-
- 
-
-    .split-layout {
-
-      display: grid;
-
-      grid-template-columns: 1fr 1fr;
-
-      gap: 4rem;
-
-      align-items: center;
-
-    }
-
- 
-
-    /* ============================================================
-
        PROBLEM SECTION
-
     ============================================================ */
-
- 
+    .problem-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2.5rem;
+    }
 
     .problem-card {
-
       background: var(--white);
-
-      padding: 2rem;
-
+      padding: 2.5rem;
       border-radius: 12px;
-
-      box-shadow: var(--shadow-lg);
-
+      box-shadow: var(--shadow-md);
+      border-left: 4px solid var(--primary-blue);
     }
-
- 
 
     .problem-card h3 {
-
       color: var(--primary-blue);
-
       font-size: 1.5rem;
-
       margin-bottom: 1rem;
-
       font-weight: 700;
-
     }
-
- 
 
     .problem-card p {
-
       color: var(--text-muted);
-
       line-height: 1.8;
-
     }
-
- 
 
     /* ============================================================
-
-       PROMISE / FEATURES
-
+       SOLUTION - CYBERMATÉRIALITÉ
     ============================================================ */
-
- 
-
-    .feature-item {
-
-      margin-bottom: 2.5rem;
-
-    }
-
- 
-
-    .feature-item h3 {
-
-      color: var(--primary-blue);
-
-      font-size: 1.5rem;
-
-      margin-bottom: 0.75rem;
-
-      font-weight: 700;
-
-      display: flex;
-
-      align-items: center;
-
-      gap: 1rem;
-
-    }
-
- 
-
-    .feature-item p {
-
-      color: var(--text-muted);
-
-      line-height: 1.8;
-
-      font-size: 1.05rem;
-
-    }
-
- 
-
-    /* ============================================================
-
-       WHO WE WORK WITH
-
-    ============================================================ */
-
- 
-
-    .numbered-card {
-
-      position: relative;
-
-    }
-
- 
-
-    .number-badge {
-
-      background: var(--primary-yellow);
-
-      color: var(--primary-blue);
-
-      width: 60px;
-
-      height: 60px;
-
-      border-radius: 12px;
-
-      display: flex;
-
-      align-items: center;
-
-      justify-content: center;
-
-      font-size: 1.5rem;
-
-      font-weight: 700;
-
-      margin-bottom: 1.5rem;
-
-    }
-
- 
-
-    .numbered-card h3 {
-
-      font-size: 1.5rem;
-
-      margin-bottom: 1rem;
-
-      font-weight: 700;
-
-    }
-
- 
-
-    .numbered-card p {
-
-      opacity: 0.9;
-
-      line-height: 1.8;
-
-    }
-
- 
-
-    /* ============================================================
-
-       VISION & MISSION
-
-    ============================================================ */
-
- 
-
-    .vision-content p {
-
-      font-size: 1.15rem;
-
-      line-height: 1.9;
-
-      margin-bottom: 1.5rem;
-
-    }
-
- 
-
-    .mission-grid {
-
+    .pillars-grid {
       display: grid;
-
-      grid-template-columns: repeat(3, 1fr);
-
-      gap: 2rem;
-
-      margin-top: 3rem;
-
-    }
-
- 
-
-    .mission-item {
-
-      background: rgba(255, 255, 255, 0.1);
-
-      padding: 2rem;
-
-      border-radius: 12px;
-
-      border: 1px solid rgba(255, 255, 255, 0.2);
-
-    }
-
- 
-
-    .mission-number {
-
-      background: var(--primary-yellow);
-
-      color: var(--primary-blue);
-
-      width: 40px;
-
-      height: 40px;
-
-      border-radius: 8px;
-
-      display: flex;
-
-      align-items: center;
-
-      justify-content: center;
-
-      font-weight: 700;
-
-      margin-bottom: 1rem;
-
-    }
-
- 
-
-    .mission-item p {
-
-      opacity: 0.95;
-
-      line-height: 1.7;
-
-    }
-
- 
-
-    /* ============================================================
-
-       EXPERTISE
-
-    ============================================================ */
-
- 
-
-    .expertise-grid {
-
-      display: grid;
-
-      grid-template-columns: 1fr 1fr;
-
-      gap: 4rem;
-
-    }
-
- 
-
-    .expertise-category {
-
-      background: var(--primary-yellow);
-
-      padding: 1.5rem 2rem;
-
-      border-radius: 12px;
-
-      font-weight: 700;
-
-      font-size: 1.25rem;
-
-      color: var(--primary-blue);
-
-      text-transform: uppercase;
-
-      letter-spacing: 0.5px;
-
-      margin-bottom: 2rem;
-
-    }
-
- 
-
-    .expertise-items {
-
-      display: grid;
-
       grid-template-columns: repeat(2, 1fr);
-
-      gap: 1.5rem;
-
-    }
-
- 
-
-    .expertise-item {
-
-      color: var(--primary-blue);
-
-      font-weight: 600;
-
-      font-size: 1.1rem;
-
-    }
-
- 
-
-    /* ============================================================
-
-       SERVICES
-
-    ============================================================ */
-
- 
-
-    .services-grid {
-
-      display: grid;
-
-      grid-template-columns: repeat(3, 1fr);
-
       gap: 2.5rem;
-
+      margin-top: 3rem;
     }
 
- 
-
-    .service-card h3 {
-
-      color: var(--primary-blue);
-
-      font-size: 1.5rem;
-
-      margin-bottom: 1rem;
-
-      font-weight: 700;
-
-    }
-
- 
-
-    .service-card p {
-
-      color: var(--text-muted);
-
-      line-height: 1.8;
-
-    }
-
- 
-
-    /* ============================================================
-
-       METHOD (DUAL LOOP)
-
-    ============================================================ */
-
- 
-
-    .method-grid {
-
-      display: grid;
-
-      grid-template-columns: 1fr 1fr;
-
-      gap: 3rem;
-
-    }
-
- 
-
-    .method-card {
-
-      padding: 3rem;
-
-      border-radius: 16px;
-
-    }
-
- 
-
-    .method-card.blue {
-
-      background: var(--primary-blue);
-
-      color: var(--white);
-
-    }
-
- 
-
-    .method-card.yellow {
-
-      background: var(--primary-yellow);
-
-      color: var(--primary-blue);
-
-    }
-
- 
-
-    .method-card h3 {
-
-      font-size: 2rem;
-
-      margin-bottom: 1.5rem;
-
-      font-weight: 700;
-
-    }
-
- 
-
-    .method-card p {
-
-      font-size: 1.1rem;
-
-      line-height: 1.8;
-
-    }
-
- 
-
-    /* ============================================================
-
-       VENTURE JOURNEY (TIMELINE)
-
-    ============================================================ */
-
- 
-
-    .timeline {
-
-      position: relative;
-
-      padding: 2rem 0;
-
-    }
-
- 
-
-    .timeline-item {
-
-      display: grid;
-
-      grid-template-columns: 150px 1fr;
-
-      gap: 3rem;
-
-      margin-bottom: 3rem;
-
-      position: relative;
-
-    }
-
- 
-
-    .timeline-time {
-
-      text-align: right;
-
-      padding-top: 0.5rem;
-
-    }
-
- 
-
-    .timeline-period {
-
-      background: var(--primary-yellow);
-
-      color: var(--primary-blue);
-
-      padding: 0.5rem 1rem;
-
-      border-radius: 8px;
-
-      font-weight: 700;
-
-      display: inline-block;
-
-    }
-
- 
-
-    .timeline-content {
-
+    .pillar-card {
       background: var(--white);
-
-      padding: 2rem;
-
+      padding: 2.5rem;
       border-radius: 12px;
-
       box-shadow: var(--shadow-md);
-
-      border-left: 4px solid var(--primary-yellow);
-
+      transition: var(--transition);
     }
 
- 
-
-    .timeline-dot {
-
-      width: 20px;
-
-      height: 20px;
-
-      background: var(--primary-yellow);
-
-      border-radius: 50%;
-
-      position: absolute;
-
-      left: 165px;
-
-      top: 1.5rem;
-
+    .pillar-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-lg);
     }
 
- 
+    .pillar-icon {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue));
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      color: var(--white);
+    }
 
-    .timeline-content h3 {
-
-      color: var(--primary-blue);
-
+    .pillar-card h3 {
       font-size: 1.5rem;
-
       margin-bottom: 1rem;
-
-      font-weight: 700;
-
-    }
-
- 
-
-    .timeline-content ul {
-
-      list-style: none;
-
-      margin: 1rem 0;
-
-    }
-
- 
-
-    .timeline-content li {
-
-      padding-left: 1.5rem;
-
-      margin-bottom: 0.5rem;
-
-      position: relative;
-
-      color: var(--text-muted);
-
-    }
-
- 
-
-    .timeline-content li::before {
-
-      content: "•";
-
-      position: absolute;
-
-      left: 0;
-
-      color: var(--primary-yellow);
-
-      font-weight: 700;
-
-    }
-
- 
-
-    .deliverables {
-
-      margin-top: 1.5rem;
-
-      padding-top: 1.5rem;
-
-      border-top: 1px solid rgba(0, 0, 0, 0.1);
-
-    }
-
- 
-
-    .deliverables strong {
-
       color: var(--primary-blue);
-
     }
 
- 
+    .pillar-card p {
+      color: var(--text-muted);
+      line-height: 1.8;
+    }
 
     /* ============================================================
-
-       CONTACT / THANK YOU
-
+       TABLEAU COMPARATIF
     ============================================================ */
+    .comparison-table-wrapper {
+      overflow-x: auto;
+      margin-top: 3rem;
+    }
 
- 
+    .comparison-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--white);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+    }
 
-    .thank-you {
-
+    .comparison-table th,
+    .comparison-table td {
+      padding: 1.25rem;
       text-align: center;
+      border-bottom: 1px solid #E5E7EB;
+    }
 
-      padding: 6rem 2rem;
-
-      background: var(--primary-blue);
-
+    .comparison-table th {
+      background: var(--dark-blue);
       color: var(--white);
-
-    }
-
- 
-
-    .thank-you h2 {
-
-      font-size: 4rem;
-
-      margin-bottom: 2rem;
-
       font-weight: 700;
-
+      font-size: 1rem;
     }
 
- 
+    .comparison-table tr:last-child td {
+      border-bottom: none;
+    }
 
-    .thank-you .tagline {
+    .comparison-table td:first-child {
+      text-align: left;
+      font-weight: 600;
+      color: var(--text-dark);
+    }
 
+    .comparison-table .quanthor-col {
+      background: rgba(30, 144, 255, 0.05);
+      font-weight: 600;
+    }
+
+    .check-green {
+      color: var(--green-accent);
       font-size: 1.5rem;
-
-      margin-bottom: 3rem;
-
-      font-weight: 300;
-
     }
 
- 
+    .check-red {
+      color: #EF4444;
+      font-size: 1.5rem;
+    }
+
+    .check-warning {
+      color: #F59E0B;
+      font-size: 1.5rem;
+    }
+
+    /* ============================================================
+       AVANTAGES CLÉS
+    ============================================================ */
+    .advantages-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2.5rem;
+      margin-top: 3rem;
+    }
+
+    .advantage-card {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 2.5rem;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+    }
+
+    .advantage-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: var(--green-accent);
+    }
+
+    .advantage-card p {
+      line-height: 1.8;
+      opacity: 0.9;
+    }
+
+    /* ============================================================
+       ROADMAP TIMELINE
+    ============================================================ */
+    .roadmap-timeline {
+      margin-top: 3rem;
+      position: relative;
+    }
+
+    .roadmap-item {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 3rem;
+      margin-bottom: 3rem;
+      position: relative;
+    }
+
+    .roadmap-phase {
+      text-align: right;
+      padding-top: 1rem;
+    }
+
+    .phase-badge {
+      display: inline-block;
+      background: var(--primary-blue);
+      color: var(--white);
+      padding: 0.75rem 1.5rem;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+
+    .phase-years {
+      display: block;
+      margin-top: 0.5rem;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    .roadmap-content {
+      background: var(--white);
+      padding: 2.5rem;
+      border-radius: 12px;
+      box-shadow: var(--shadow-md);
+      border-left: 4px solid var(--green-accent);
+    }
+
+    .roadmap-content h3 {
+      color: var(--primary-blue);
+      font-size: 1.75rem;
+      margin-bottom: 1rem;
+    }
+
+    .roadmap-content p {
+      color: var(--text-muted);
+      line-height: 1.8;
+    }
+
+    /* ============================================================
+       TECHNOLOGIE ACTUELLE
+    ============================================================ */
+    .tech-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2.5rem;
+      margin-top: 3rem;
+    }
+
+    .tech-card {
+      background: var(--white);
+      padding: 2.5rem;
+      border-radius: 12px;
+      box-shadow: var(--shadow-md);
+    }
+
+    .tech-card h3 {
+      color: var(--primary-blue);
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .tech-card ul {
+      list-style: none;
+    }
+
+    .tech-card li {
+      padding-left: 1.5rem;
+      margin-bottom: 0.75rem;
+      position: relative;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    .tech-card li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: var(--green-accent);
+      font-weight: 700;
+    }
+
+    /* ============================================================
+       MARCHÉS CIBLES
+    ============================================================ */
+    .markets-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2.5rem;
+      margin-top: 3rem;
+    }
+
+    .market-card {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 2.5rem;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      text-align: center;
+      backdrop-filter: blur(10px);
+    }
+
+    .market-icon {
+      font-size: 3.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .market-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: var(--green-accent);
+    }
+
+    .market-card p {
+      line-height: 1.7;
+      opacity: 0.9;
+    }
+
+    /* ============================================================
+       MODÈLE ÉCONOMIQUE
+    ============================================================ */
+    .business-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2.5rem;
+      margin-top: 3rem;
+    }
+
+    .business-card {
+      background: var(--white);
+      padding: 2.5rem;
+      border-radius: 12px;
+      box-shadow: var(--shadow-md);
+    }
+
+    .business-card h3 {
+      color: var(--primary-blue);
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .business-card p {
+      color: var(--text-muted);
+      line-height: 1.8;
+    }
+
+    /* ============================================================
+       CAS D'USAGE
+    ============================================================ */
+    .usecase-section {
+      margin-bottom: 4rem;
+    }
+
+    .usecase-header {
+      background: var(--primary-blue);
+      color: var(--white);
+      padding: 2rem;
+      border-radius: 12px 12px 0 0;
+    }
+
+    .usecase-header h3 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .usecase-header p {
+      font-size: 1.1rem;
+      opacity: 0.9;
+    }
+
+    .usecase-content {
+      background: var(--white);
+      padding: 2.5rem;
+      border-radius: 0 0 12px 12px;
+      box-shadow: var(--shadow-md);
+    }
+
+    .usecase-item {
+      margin-bottom: 2rem;
+    }
+
+    .usecase-item h4 {
+      color: var(--primary-blue);
+      font-size: 1.25rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .usecase-item p {
+      color: var(--text-muted);
+      line-height: 1.8;
+    }
+
+    /* ============================================================
+       ÉQUIPE
+    ============================================================ */
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2.5rem;
+      margin-top: 3rem;
+    }
+
+    .team-card {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 2.5rem;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      text-align: center;
+      backdrop-filter: blur(10px);
+      transition: var(--transition);
+    }
+
+    .team-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--green-accent);
+    }
+
+    .team-avatar {
+      width: 100px;
+      height: 100px;
+      background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue));
+      border-radius: 50%;
+      margin: 0 auto 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      color: var(--white);
+    }
+
+    .team-card h3 {
+      font-size: 1.25rem;
+      margin-bottom: 0.5rem;
+      color: var(--white);
+    }
+
+    .team-card .role {
+      color: var(--green-accent);
+      font-weight: 600;
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
+    }
+
+    .team-card p {
+      line-height: 1.7;
+      opacity: 0.85;
+      font-size: 0.95rem;
+    }
+
+    /* ============================================================
+       CONTACT / FOOTER
+    ============================================================ */
+    .contact-section {
+      background: var(--white);
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+
+    .contact-conclusion {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--primary-blue);
+      margin-bottom: 3rem;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.6;
+    }
 
     .contact-info {
-
-      display: flex;
-
-      justify-content: center;
-
-      gap: 3rem;
-
-      margin-top: 2rem;
-
-      flex-wrap: wrap;
-
+      background: var(--bg-light);
+      padding: 2rem;
+      border-radius: 12px;
+      max-width: 600px;
+      margin: 0 auto;
     }
-
- 
 
     .contact-item {
-
-      display: flex;
-
-      align-items: center;
-
-      gap: 1rem;
-
-      font-size: 1.1rem;
-
+      margin-bottom: 1rem;
+      color: var(--text-dark);
+      line-height: 1.8;
     }
 
- 
-
-    .contact-icon {
-
-      width: 40px;
-
-      height: 40px;
-
-      background: var(--primary-yellow);
-
-      border-radius: 50%;
-
-      display: flex;
-
-      align-items: center;
-
-      justify-content: center;
-
-      font-size: 1.25rem;
-
+    .contact-item strong {
+      color: var(--primary-blue);
     }
 
-    /* =============================
-   CONTACT SECTION (NEW VERSION)
-============================= */
+    footer {
+      background: var(--dark-blue);
+      color: var(--white);
+      padding: 2rem;
+      text-align: center;
+    }
 
-.contact-section {
-  background: var(--white);
-  padding: 4rem 2rem;
-  text-align: center;
-}
+    footer p {
+      opacity: 0.8;
+    }
 
-.contact-title {
-  font-size: 2.4rem;
-  font-weight: 700;
-  color: var(--primary-blue);
-  margin-bottom: 0.75rem;
-}
-
-.contact-subtitle {
-  font-size: 1.15rem;
-  color: var(--text-muted);
-  margin-bottom: 2.5rem;
-}
-
-.contact-grid {
-  max-width: 700px;
-  margin: 0 auto;
-  display: grid;
-  gap: 1.5rem;
-}
-
-.contact-item {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-  font-size: 1.05rem;
-}
-
-.contact-item a {
-  color: var(--primary-blue);
-  text-decoration: none;
-  font-weight: 500;
-}
-
-.contact-item a:hover {
-  text-decoration: underline;
-}
-
-.contact-icon {
-  width: 36px;
-  height: 36px;
-  background: var(--primary-yellow);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.2rem;
-}
- /* =============================
-   LEGAL SECTION
-============================= */
-
-.legal-section {
-  background: var(--bg-light);
-  padding: 2rem 2rem;
-  text-align: center;
-  font-size: 0.9rem;
-}
-
-.legal-container h3 {
-  margin-bottom: 1rem;
-  font-size: 1.2rem;
-  color: var(--primary-blue);
-}
-
-.legal-section a {
-  color: var(--primary-blue);
-  text-decoration: underline;
-}
-/* =============================
-   FOOTER
-============================= */
-
-.site-footer {
-  background: #0b1120;
-  color: #9ca3af;
-  padding: 1.2rem 2rem;
-  font-size: 0.85rem;
-}
-
-.footer-inner {
-  max-width: var(--max-width);
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
-.site-footer a {
-  color: #e5e7eb;
-  text-decoration: none;
-}
-
-.site-footer a:hover {
-  color: var(--primary-yellow);
-  text-decoration: underline;
-}
     /* ============================================================
-
        RESPONSIVE
-
     ============================================================ */
-
- 
-
     @media (max-width: 1024px) {
-
-      .hero {
-
-        grid-template-columns: 1fr;
-
-      }
-
- 
-
-      .hero-image {
-
-        height: 400px;
-
-      }
-
- 
-
-      .split-layout {
-
-        grid-template-columns: 1fr;
-
-      }
-
- 
-
-      .grid-4 {
-
+      .about-grid,
+      .advantages-grid,
+      .tech-grid,
+      .markets-grid,
+      .business-grid,
+      .team-grid {
         grid-template-columns: repeat(2, 1fr);
-
       }
 
- 
-
-      .services-grid {
-
-        grid-template-columns: repeat(2, 1fr);
-
-      }
-
- 
-
-      .expertise-grid {
-
+      .roadmap-item {
         grid-template-columns: 1fr;
-
       }
 
- 
-
-      .mission-grid {
-
-        grid-template-columns: 1fr;
-
+      .roadmap-phase {
+        text-align: left;
       }
-
     }
-
- 
 
     @media (max-width: 768px) {
-
       .nav-links {
-
         display: none;
-
       }
-
- 
 
       .menu-toggle {
-
         display: flex;
-
       }
 
- 
-
-      .hero-logo-text h1 {
-
-        font-size: 2rem;
-
+      .hero-logo-text {
+        font-size: 2.5rem;
       }
 
- 
-
-      .hero-tagline {
-
+      .hero-slogan {
         font-size: 1.2rem;
-
       }
-
- 
 
       .section-title {
-
         font-size: 2rem;
-
       }
 
- 
-
-      .grid-2,
-
-      .grid-4,
-
-      .services-grid,
-
-      .method-grid {
-
+      .about-grid,
+      .problem-grid,
+      .pillars-grid,
+      .advantages-grid,
+      .tech-grid,
+      .markets-grid,
+      .business-grid,
+      .team-grid {
         grid-template-columns: 1fr;
-
       }
-
- 
-
-      .timeline-item {
-
-        grid-template-columns: 1fr;
-
-      }
-
- 
-
-      .timeline-dot {
-
-        display: none;
-
-      }
-
- 
-
-      .timeline-time {
-
-        text-align: left;
-
-        margin-bottom: 1rem;
-
-      }
-
- 
-
-      .thank-you h2 {
-
-        font-size: 2.5rem;
-
-      }
-
- 
-
-      .contact-info {
-
-        flex-direction: column;
-
-        align-items: center;
-
-      }
-
     }
-
- 
 
     /* ============================================================
-
-       UTILITY CLASSES
-
+       ANIMATIONS
     ============================================================ */
-
- 
-
     .fade-in {
-
       opacity: 0;
-
-      transform: translateY(20px);
-
+      transform: translateY(30px);
       transition: opacity 0.6s ease, transform 0.6s ease;
-
     }
-
- 
 
     .fade-in.visible {
-
       opacity: 1;
-
       transform: translateY(0);
-
     }
 
-  </style>
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
 
+    .hero-logo-circle {
+      animation: float 3s ease-in-out infinite;
+    }
+  </style>
 </head>
 
- 
-
 <body>
+  <!-- HEADER -->
+  <header id="header">
+    <nav class="nav">
+      <div class="logo">
+        <div class="logo-circle">🔒</div>
+        <span>Quanthor</span>
+      </div>
 
- 
+      <div class="nav-links">
+        <a href="#about">À propos</a>
+        <a href="#problem">Problème</a>
+        <a href="#solution">Solution</a>
+        <a href="#roadmap">Roadmap</a>
+        <a href="#markets">Marchés</a>
+        <a href="#usecases">Cas d'usage</a>
+        <a href="#team">Équipe</a>
+        <a href="#contact">Contact</a>
+      </div>
 
-<!-- HEADER -->
+      <button class="menu-toggle" id="menuToggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </nav>
+  </header>
 
-<header id="header">
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-logo">
+        <div class="hero-logo-circle">🔐</div>
+        <div class="hero-logo-text">QUANTHOR</div>
+      </div>
 
-  <nav class="nav">
+      <h1 class="hero-slogan">Cybermatérialité & Résilience Post-Quantique pour les Infrastructures Critiques</h1>
 
- <div class="logo">
-      <!-- IMPORTANT : adapte le src au vrai nom de ton fichier -->
-      <img src="logo-mccann-perkins.png" alt="McCann Perkins logo" class="logo-img" />
-         </div>
-    <nav class="nav-links">
+      <p class="hero-mission">Vérité Embarquée, Souveraineté Garantie</p>
 
+      <p class="hero-tagline">Nous transformons chaque objet critique en garant autonome de sa propre authenticité</p>
+
+      <div class="badge-canada">
+        <span>🍁</span>
+        <span>Fier d'être Canadien</span>
+      </div>
+
+      <br>
+
+      <a href="#contact" class="cta-button">Découvrir Quanthor</a>
     </div>
-
- 
-
-    <div class="nav-links">
-
-      <a href="#problem">Problem</a>
-
-      <a href="#approach">Approach</a>
-
-      <a href="#who">Who we work with</a>
-
-      <a href="#vision">Vision</a>
-
-      <a href="#expertise">Expertise</a>
-
-      <a href="#services">Services</a>
-
-      <a href="#method">Method</a>
-
-      <a href="#journey">Journey</a>
-
-      <a href="#contact">Contact</a>
-
-    </div>
-
- 
-
-    <button class="menu-toggle" id="menuToggle">
-
-      <span></span>
-
-      <span></span>
-
-      <span></span>
-
-    </button>
-
-  </nav>
-
-</header>
-
- 
-
-<!-- HERO -->
-
-<section class="hero">
-
- <div class="hero-centered">
-  <h2 class="hero-title">
-    <span class="white">Since 2006, we don’t invest in ideas.</span><br>
-    <span class="yellow">We co-found companies built to last.</span>
-  </h2>
-</div>
-</div>
-
-  <div class="hero-image">
-
-    <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=1200&q=80" alt="Innovation and technology" />
-
-  </div>
-
-</section>
-
- 
-
-<!-- THE PROBLEM -->
-
-<section id="problem" class="section section-white">
-
-  <div class="container">
-
-    <h2 class="section-title">The problem</h2>
-
-    <p class="section-subtitle">Why startups in critical tech fail — even with funding</p>
-
-    <p style="font-size: 1.15rem; margin-bottom: 3rem; color: var(--text-muted);">
-
-      Too many tech startups fail — not because they lack ideas, but because they lack strong cofounders,
-
-      operational guidance, and long-term support.
-
-    </p>
-
- 
-
-    <div class="grid-2">
-
-      <div class="problem-card fade-in">
-
-        <h3>Capital without Commitment</h3>
-
-        <p>VCs provide capital, not execution. They fund, but don't build — leaving founders alone when decisions matter most.</p>
-
-      </div>
-
- 
-
-      <div class="problem-card fade-in">
-
-        <h3>Speed over Substance</h3>
-
-        <p>Most funds push for growth at any cost. Deep tech requires time, but investors want quick returns.</p>
-
-      </div>
-
- 
-
-      <div class="problem-card fade-in">
-
-        <h3>Founders Left Isolated</h3>
-
-        <p>Founders are expected to know everything: raise capital, recruit, execute… but without solid co-founders or strategic support.</p>
-
-      </div>
-
- 
-
-      <div class="problem-card fade-in">
-
-        <h3>No Room for Error</h3>
-
-        <p>Critical sectors can't afford mistakes. In cybersecurity, quantum, or sovereign infrastructure, execution is everything.</p>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
- 
-
-<!-- OUR APPROACH -->
-
-<section id="approach" class="section section-light">
-
-  <div class="container">
-
-    <div class="split-layout">
-
-      <div class="fade-in">
-
-        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80" alt="Team collaboration" style="border-radius: 12px; box-shadow: var(--shadow-lg);" />
-
-      </div>
-
- 
-
-      <div class="fade-in">
-
-        <h2 class="section-title">Our approach</h2>
-
- 
-
-        <div class="icon-box">🏠</div>
-
-        <h3 style="font-size: 2rem; color: var(--primary-blue); margin-bottom: 1.5rem;">Who we are</h3>
-
- 
-
-        <p style="font-size: 1.1rem; color: var(--text-muted); line-height: 1.8; margin-bottom: 1.5rem;">
-
-          Founded in the United States in 2006, McCann Perkins is an internationally oriented startup studio,
-
-          born from the belief that great companies are not built with money alone, but with committed allies.
-
-        </p>
-
- 
-
-        <p style="font-size: 1.1rem; color: var(--text-muted); line-height: 1.8; margin-bottom: 1.5rem;">
-After more than fifteen years working alongside bold entrepreneurs, we chose to anchor our presence in North America to support the rise of sovereign, sustainable, and strategic innovation — driven by a model rooted in co-creation and human capital.
-
-        </p>
-
- 
-
-        <p style="font-size: 1.1rem; color: var(--text-muted); line-height: 1.8;">
-
-          We are not a fund: we don't deploy cash, but rather operational and technological expertise essential
-
-          to turning solid ideas into antifragile companies.
-
-        </p>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
- 
-
-<!-- OUR PROMISE -->
-
-<section class="section section-white">
-
-  <div class="container">
-
-    <h2 class="section-title">Our promise</h2>
-
-    <p class="section-subtitle">What you can't afford to hire, we bring to the table as co-founders.</p>
-
- 
-
-    <p style="font-size: 1.15rem; margin-bottom: 3rem; color: var(--text-muted);">
-
-      At McCann Perkins, we believe the best companies are born from trust, hard work, and uncompromising support.
-
-    </p>
-
- 
-
-    <div class="grid-2">
-
-      <div class="fade-in">
-
-        <div class="feature-item">
-
-          <h3>✓ Strategic mind</h3>
-
-          <p>Not detached advice. Seasoned C-level executives (CEO, CTO, CISO…) actively involved in your key decisions, week after week.</p>
-
+  </section>
+
+  <!-- À PROPOS / MISSION -->
+  <section id="about" class="section section-dark">
+    <div class="container">
+      <h2 class="section-title">Quanthor : Pionnier de la Cybermatérialité</h2>
+      <p class="section-subtitle">Une société "Souveraine par Design"</p>
+
+      <div class="about-grid">
+        <div class="about-card fade-in">
+          <h3>Propriété Intellectuelle</h3>
+          <p>Architecture technique propriétaire protégée. Notre technologie est le fruit de recherches avancées et d'innovations brevetables dans le domaine de la cybermatérialité.</p>
         </div>
 
- 
-
-        <div class="feature-item">
-
-          <h3>✓ Strong foundations</h3>
-
-          <p>Legal structuring, governance, operational models, technical architecture — everything it takes to build a company that lasts.</p>
-
+        <div class="about-card fade-in">
+          <h3>Double Expertise</h3>
+          <p>Fusion unique de la Physique Quantique, de la Cryptographie Embarquée et de l'expérience dans l'Industrie de Défense. Une convergence d'expertises rare et stratégique.</p>
         </div>
 
+        <div class="about-card fade-in">
+          <h3>Vision Long Terme</h3>
+          <p>Roadmap ambitieuse sur 10 ans structurée en trois phases : Castor (2026-2027), Lynx (2028-2030), et Ours (2031-2035). De la résilience immédiate à la suprématie quantique.</p>
+        </div>
       </div>
-
- 
-
-      <div class="fade-in">
-
-        <div class="feature-item">
-
-          <h3>✓ Hands-on team</h3>
-
-          <p>Not mission-based consultants. Trusted experts who commit for the long term because they believe in your project.</p>
-
-        </div>
-
- 
-
-        <div class="feature-item">
-
-          <h3>✓ Key partners</h3>
-
-          <p>A selective network of entrepreneurs, industrial partners, and institutions. Targeted introductions — never random.</p>
-
-        </div>
-
-      </div>
-
     </div>
-
-  </div>
-
-</section>
-
- 
-
-<!-- WHO WE WORK WITH -->
-
-<section id="who" class="section section-blue">
-
-  <div class="container">
-
-    <h2 class="section-title">Who we work with</h2>
-
-    <p class="section-subtitle">Our studio is built for those who want to build seriously — not chase trends.</p>
-
- 
-
-    <div class="grid-4">
-
-      <div class="numbered-card fade-in">
-
-        <div class="number-badge">01</div>
-
-        <h3>Ambitious founders</h3>
-
-        <p>You have a bold vision and unique expertise, but limited resources to structure, secure, and launch your project? That's exactly what we're here for.</p>
-
-      </div>
-
- 
-
-      <div class="numbered-card fade-in">
-
-        <div class="number-badge">02</div>
-
-        <h3>Spin-offs</h3>
-
-        <p>Coming out of a lab, a company, or an abandoned project? Ready to move to the "real company" stage? We help you lay the foundation.</p>
-
-      </div>
-
- 
-
-      <div class="numbered-card fade-in">
-
-        <div class="number-badge">03</div>
-
-        <h3>Corporate partners</h3>
-
-        <p>Looking to get involved in innovation differently? Willing to invest your time, skills, or resources? We give you access to a qualified, structured dealflow.</p>
-
-      </div>
-
- 
-
-      <div class="numbered-card fade-in">
-
-        <div class="number-badge">04</div>
-
-        <h3>Discerning investors</h3>
-
-        <p>Looking for serious, supported, and vetted projects from day one? McCann Perkins is a rigorous selection gateway. We only present what truly stands.</p>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
- 
-
-<!-- VISION & MISSION -->
-
-<section id="vision" class="section section-light">
-
-  <div class="container">
-
-    <div class="split-layout">
-
-      <div class="vision-content fade-in">
-
-        <div class="icon-box">💡</div>
-
-        <h2 class="section-title" style="color: var(--primary-blue);">Vision</h2>
-
- 
-
-        <p>
-
-          At McCann Perkins, we believe in a different kind of capital — one that isn't measured in numbers,
-
-          but in commitment, presence, and impact. Human capital — that rare time, critical expertise, and
-
-          unwavering alignment — is now the most valuable resource for building strong companies.
-
-        </p>
-
- 
-
-        <p>
-
-          We've chosen to build a clear model: a startup studio that works alongside founders from day one,
-
-          to build seriously — with discipline, with depth, without compromise. We don't bet on ideas. We
-
-          invest in the ability to make them real, resilient, and ready.
-
-        </p>
-
- 
-
-        <p style="font-weight: 600; font-size: 1.2rem; color: var(--primary-blue);">
-
-          Co-create, execute, grow together. Because no one should have to build alone.
-
-        </p>
-
-      </div>
-
- 
-
-      <div class="fade-in">
-
-        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=80" alt="Vision and strategy" style="border-radius: 12px; box-shadow: var(--shadow-lg);" />
-
-      </div>
-
-    </div>
-
- 
-
-    <div style="margin-top: 4rem;">
-
-      <h2 class="section-title" style="color: var(--primary-blue);">Mission</h2>
-
- 
-
-      <div class="mission-grid">
-
-        <div class="mission-item fade-in" style="background: var(--white); border: 1px solid rgba(0,0,0,0.1);">
-
-          <div class="mission-number">01</div>
-
-          <p style="color: var(--text-muted);">
-
-            We support committed entrepreneurs from the very first steps, co-founding ambitious, purposeful,
-
-            and resilient startups with them. Our studio brings together the strategic, technical, and operational
-
-            expertise needed to turn strong ideas into sustainable companies.
-
-          </p>
-
+  </section>
+
+  <!-- LE PROBLÈME -->
+  <section id="problem" class="section section-light">
+    <div class="container">
+      <h2 class="section-title">L'Authenticité Matérielle N'est Plus Garantie dans un Monde Hybride</h2>
+      <p class="section-subtitle">Quatre menaces critiques qui exigent une réponse souveraine</p>
+
+      <div class="problem-grid">
+        <div class="problem-card fade-in">
+          <h3>🔴 La menace Supply Chain</h3>
+          <p>Infiltrations malveillantes, contrefaçons de semiconducteurs dans l'aéronautique, composants compromis dans les systèmes critiques. La supply chain est devenue le maillon faible de notre sécurité nationale.</p>
         </div>
 
- 
-
-        <div class="mission-item fade-in" style="background: var(--white); border: 1px solid rgba(0,0,0,0.1);">
-
-          <div class="mission-number">02</div>
-
-          <p style="color: var(--text-muted);">
-
-            We're not here to multiply projects, but to build with rigor, care, and high standards. Every collaboration
-
-            is a partnership built on trust, grounded in real involvement and deep alignment around values, goals, and execution.
-
-          </p>
-
+        <div class="problem-card fade-in">
+          <h3>💰 Le coût de la défiance</h3>
+          <p>10 500 milliards USD de pertes estimées par an d'ici 2025 dues à la cybercriminalité et à la contrefaçon. L'absence de confiance numérique coûte des milliards à l'économie mondiale.</p>
         </div>
 
- 
-
-        <div class="mission-item fade-in" style="background: var(--white); border: 1px solid rgba(0,0,0,0.1);">
-
-          <div class="mission-number">03</div>
-
-          <p style="color: var(--text-muted);">
-
-            Our mission is to open a different path to entrepreneurship — collective, responsible, and human-centered.
-
-            A model to create, together, the kind of companies this era demands.
-
-          </p>
-
+        <div class="problem-card fade-in">
+          <h3>⚡ L'urgence Quantique</h3>
+          <p>Les algorithmes RSA et ECC actuels seront obsolètes avec l'arrivée des ordinateurs quantiques. Les attaques "Harvest Now, Decrypt Later" menacent déjà les données sensibles d'aujourd'hui.</p>
         </div>
 
+        <div class="problem-card fade-in">
+          <h3>☁️ La limite actuelle</h3>
+          <p>Les solutions Cloud et PKI traditionnelles dépendent d'une connexion permanente et sont vulnérables aux attaques. Aucune autonomie réelle, aucune souveraineté garantie.</p>
+        </div>
       </div>
-
     </div>
+  </section>
 
-  </div>
+  <!-- LA SOLUTION - CYBERMATÉRIALITÉ -->
+  <section id="solution" class="section section-white">
+    <div class="container">
+      <h2 class="section-title">La Cybermatérialité : Ancrer la Confiance Numérique dans la Physique</h2>
+      <p class="section-subtitle">Une solution embarquée qui ne dépend pas du cloud, capable de se vérifier elle-même</p>
 
-</section>
-
- 
-
-<!-- CORE EXPERTISE -->
-
-<section id="expertise" class="section section-white">
-
-  <div class="container">
-
-    <h2 class="section-title">Our core expertise</h2>
-
- 
-
-    <div class="expertise-grid">
-
-      <div class="fade-in">
-
-        <div class="expertise-category">CYBERSECURITY & QUANTUM</div>
-
-        <div class="expertise-items">
-
-          <div class="expertise-item">Safeguarding critical data</div>
-
-          <div class="expertise-item">Quantum computing</div>
-
-          <div class="expertise-item">Post-quantum cryptography</div>
-
-          <div class="expertise-item">Quantum communication</div>
-
+      <div class="pillars-grid">
+        <div class="pillar-card fade-in">
+          <div class="pillar-icon">🔑</div>
+          <h3>Identité physique (PUF)</h3>
+          <p>Empreinte digitale matérielle unique (SRAM, Optique, RF) impossible à cloner. Chaque composant possède une signature physique intrinsèque et immuable, générée par les imperfections naturelles de sa fabrication.</p>
         </div>
 
-      </div>
-
- 
-
-      <div class="fade-in">
-
-        <div class="expertise-category">DEEP TECH & SUSTAINABLE AI</div>
-
-        <div class="expertise-items">
-
-          <div class="expertise-item">Transformative technologies driving the green transition</div>
-
-          <div class="expertise-item">Efficient models and ethical training</div>
-
-          <div class="expertise-item">Sustainable loops and transparent tracking</div>
-
-          <div class="expertise-item">Construction and infrastructure</div>
-
+        <div class="pillar-card fade-in">
+          <div class="pillar-icon">🛡️</div>
+          <h3>Cryptographie Post-Quantique (PQC)</h3>
+          <p>Algorithmes Dilithium et Falcon conformes aux standards NIST 2024. Protection garantie contre les menaces quantiques actuelles et futures, avec des performances optimisées pour les systèmes embarqués.</p>
         </div>
 
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
- 
-
-<!-- SERVICES -->
-
-<section id="services" class="section section-light">
-
-  <div class="container">
-
-    <h2 class="section-title">Our services</h2>
-
-    <p class="section-subtitle">Giving founders access to what they can't secure alone at the start</p>
-
- 
-
-    <p style="font-size: 1.15rem; margin-bottom: 3rem; color: var(--text-muted);">
-
-      At McCann Perkins, we're neither observers nor passive partners. We act as fully committed co-founders
-
-      from day one to secure, structure, and grow what truly matters in the long run: a strong foundation,
-
-      clear execution, and sound decision-making.
-
-    </p>
-
- 
-
-    <div class="services-grid">
-
-      <div class="service-card fade-in">
-
-        <h3>Mentorship</h3>
-
-        <p>High-level strategic mentorship from experienced CEOs, CTOs, COOs, and CISOs</p>
-
-      </div>
-
- 
-
-      <div class="service-card fade-in">
-
-        <h3>Structuration</h3>
-
-        <p>Bespoke legal and business structuring</p>
-
-      </div>
-
- 
-
-      <div class="service-card fade-in">
-
-        <h3>IT advisory</h3>
-
-        <p>IT infrastructure and cybersecurity hardening</p>
-
-      </div>
-
- 
-
-      <div class="service-card fade-in">
-
-        <h3>Matching</h3>
-
-        <p>Helping build strong founding teams and connect with the right co-founders</p>
-
-      </div>
-
- 
-
-      <div class="service-card fade-in">
-
-        <h3>Operational maturity</h3>
-
-        <p>Helping startups get structured and execution-ready from day one</p>
-
-      </div>
-
- 
-
-      <div class="service-card fade-in">
-
-        <h3>Fractional C-Level</h3>
-
-        <p>We bring in seasoned fractional C-level leaders who act as co-founders, on a flexible and committed basis</p>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
- 
-
-<!-- OUR METHOD -->
-
-<section id="method" class="section section-white">
-
-  <div class="container">
-
-    <h2 class="section-title">Our method</h2>
-
-    <p class="section-subtitle">Our approach is built around the proprietary Dual Loop method — a two-step strategy designed to turn opportunities into viable startups.</p>
-
- 
-
-    <div class="method-grid">
-
-      <div class="method-card blue fade-in">
-
-        <h3>Deep Dive</h3>
-
-        <p>
-
-          This first phase focuses on identifying concrete use cases based on real-world needs. It ensures
-
-          that each project is grounded in industrial reality, with a validated market potential and a
-
-          well-understood technological feasibility.
-
-        </p>
-
-      </div>
-
- 
-
-      <div class="method-card yellow fade-in">
-
-        <h3>Fast Forge</h3>
-
-        <p>
-
-          In this second loop, we transform an idea into a prototype in record time. By leveraging hybrid
-
-          classical/quantum tools and pilot partners, we accelerate proof of usefulness and drastically
-
-          shorten incubation cycles.
-
-        </p>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
- 
-
-<!-- VENTURE JOURNEY -->
-
-<section id="journey" class="section section-light">
-
-  <div class="container">
-
-    <h2 class="section-title">The McCann Perkins Venture Journey</h2>
-
- 
-
-    <div class="timeline">
-
-      <div class="timeline-item fade-in">
-
-        <div class="timeline-time">
-
-          <div class="timeline-period">Weeks 0 to 4</div>
-
+        <div class="pillar-card fade-in">
+          <div class="pillar-icon">📋</div>
+          <h3>Journalisation infalsifiable</h3>
+          <p>Mémoire "Append-only" sécurisée localement. Chaque événement est enregistré de manière indélébile, créant une chaîne de traçabilité impossible à altérer ou à effacer.</p>
         </div>
 
-        <div class="timeline-dot"></div>
+        <div class="pillar-card fade-in">
+          <div class="pillar-icon">⏰</div>
+          <h3>Horodatage certifié</h3>
+          <p>Preuve temporelle conforme RFC 3161 (eIDAS). Timestamps cryptographiques certifiés garantissant la non-répudiation et la validité juridique des événements enregistrés.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-        <div class="timeline-content">
+  <!-- COMPARAISON COMPÉTITIVE -->
+  <section id="comparison" class="section section-light">
+    <div class="container">
+      <h2 class="section-title">Quanthor vs Solutions Traditionnelles</h2>
+      <p class="section-subtitle">Une approche radicalement différente de la sécurité</p>
 
-          <h3>Align – Strategic Framing & Commitment</h3>
+      <div class="comparison-table-wrapper">
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th>Critère</th>
+              <th>Cloud/SaaS<br>(AWS KMS)</th>
+              <th>Blockchain Pure</th>
+              <th>HSM/PKI<br>Traditionnels</th>
+              <th class="quanthor-col">QUANTHOR</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Ancrage Physique (PUF)</td>
+              <td><span class="check-red">❌</span></td>
+              <td><span class="check-red">❌</span></td>
+              <td><span class="check-warning">⚠️</span></td>
+              <td class="quanthor-col"><span class="check-green">✅</span></td>
+            </tr>
+            <tr>
+              <td>Résistance Post-Quantique</td>
+              <td><span class="check-warning">⚠️</span></td>
+              <td><span class="check-red">❌</span></td>
+              <td><span class="check-warning">⚠️</span></td>
+              <td class="quanthor-col"><span class="check-green">✅</span></td>
+            </tr>
+            <tr>
+              <td>Autonomie Totale (Offline)</td>
+              <td><span class="check-red">❌</span></td>
+              <td><span class="check-red">❌</span></td>
+              <td><span class="check-warning">⚠️</span></td>
+              <td class="quanthor-col"><span class="check-green">✅</span></td>
+            </tr>
+            <tr>
+              <td>Souveraineté Données</td>
+              <td><span class="check-red">❌</span></td>
+              <td><span class="check-warning">⚠️</span></td>
+              <td><span class="check-green">✅</span></td>
+              <td class="quanthor-col"><span class="check-green">✅</span></td>
+            </tr>
+            <tr>
+              <td>Coût d'Intégration</td>
+              <td><span class="check-green">✅</span></td>
+              <td><span class="check-green">✅</span></td>
+              <td><span class="check-red">❌</span></td>
+              <td class="quanthor-col"><span class="check-green">✅</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
 
-          <p>We begin with a focused diagnostic: founding team, market dynamics, and ambition. We define roles, align on vision, and formalize the engagement (sweat equity, governance, roadmap).</p>
+  <!-- AVANTAGES CLÉS -->
+  <section id="advantages" class="section section-dark">
+    <div class="container">
+      <h2 class="section-title">Contrairement au Cloud, Quanthor Rend l'Objet Autonome et Souverain</h2>
+      <p class="section-subtitle">Trois avantages stratégiques décisifs</p>
 
-          <ul>
+      <div class="advantages-grid">
+        <div class="advantage-card fade-in">
+          <h3>🌐 Autonomie Totale</h3>
+          <p>Vérification hors-ligne sans dépendance réseau, crucial pour les environnements déconnectés comme le champ de bataille, l'espace ou les sites isolés. L'objet devient son propre garant.</p>
+        </div>
 
-            <li>Diagnostic of founding team and market context</li>
+        <div class="advantage-card fade-in">
+          <h3>🔬 Ancrage Physique</h3>
+          <p>Identité générée par la matière elle-même (PUF), impossible à cloner ou à reproduire. La sécurité ne repose plus uniquement sur le logiciel, mais sur les lois de la physique.</p>
+        </div>
 
-            <li>Vision, roles, and governance clarified</li>
+        <div class="advantage-card fade-in">
+          <h3>🇨🇦 Souveraineté par Design</h3>
+          <p>Aucune dépendance à une infrastructure étrangère, immunité au Cloud Act américain. Solution 100% souveraine pour les infrastructures critiques nationales.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-            <li>Engagement pact and equity framework outlined</li>
+  <!-- ROADMAP TECHNOLOGIQUE -->
+  <section id="roadmap" class="section section-light">
+    <div class="container">
+      <h2 class="section-title">De la Résilience Immédiate à la Suprématie Quantique</h2>
+      <p class="section-subtitle">Une vision technologique sur 10 ans</p>
 
-            <li>Initial roadmap and milestones defined</li>
-
-          </ul>
-
-          <div class="deliverables">
-
-            <strong>Deliverables:</strong> Strategic roadmap, equity framework, engagement pact
-
+      <div class="roadmap-timeline">
+        <div class="roadmap-item fade-in">
+          <div class="roadmap-phase">
+            <span class="phase-badge">Phase 1 - Castor 🦫</span>
+            <span class="phase-years">2026-2027</span>
           </div>
-
-        </div>
-
-      </div>
-
- 
-
-      <div class="timeline-item fade-in">
-
-        <div class="timeline-time">
-
-          <div class="timeline-period">Months 1 to 3</div>
-
-        </div>
-
-        <div class="timeline-dot"></div>
-
-        <div class="timeline-content">
-
-          <h3>Build – Structure, Product & Positioning</h3>
-
-          <p>We co-develop the legal, technical, and business foundations. Together we define the core offer, clarify the positioning, and set up the first operational tools.</p>
-
-          <ul>
-
-            <li>Legal and business foundations put in place</li>
-
-            <li>Core offer and value proposition refined</li>
-
-            <li>Technical architecture and security baseline designed</li>
-
-            <li>Brand identity and narrative created</li>
-
-          </ul>
-
-          <div class="deliverables">
-
-            <strong>Deliverables:</strong> Pitch deck, MVP specs, business model, brand identity
-
+          <div class="roadmap-content">
+            <h3>🦫 Phase Castor : Fondations Solides</h3>
+            <p>Déploiement de PUF Classiques (SRAM, Optique) combinés à la Cryptographie Post-Quantique (Dilithium, Falcon). Développement de prototypes pour les secteurs Défense et Justice. Validation terrain et certification initiale.</p>
           </div>
-
         </div>
 
-      </div>
-
- 
-
-      <div class="timeline-item fade-in">
-
-        <div class="timeline-time">
-
-          <div class="timeline-period">Months 4 to 8</div>
-
-        </div>
-
-        <div class="timeline-dot"></div>
-
-        <div class="timeline-content">
-
-          <h3>Launch – MVP, Clients & First Revenue</h3>
-
-          <p>We ship a functional MVP, test it with early adopters, and initiate commercial traction or fundraising. McCann Perkins remains deeply involved in day-to-day execution.</p>
-
-          <ul>
-
-            <li>MVP delivered and tested with early adopters</li>
-
-            <li>First commercial traction and feedback loops</li>
-
-            <li>Investor-ready materials prepared</li>
-
-            <li>Day-to-day execution supported by our team</li>
-
-          </ul>
-
-          <div class="deliverables">
-
-            <strong>Deliverables:</strong> Working MVP, first leads or clients, investor-ready materials
-
+        <div class="roadmap-item fade-in">
+          <div class="roadmap-phase">
+            <span class="phase-badge">Phase 2 - Lynx 🐈</span>
+            <span class="phase-years">2028-2030</span>
           </div>
-
-        </div>
-
-      </div>
-
- 
-
-      <div class="timeline-item fade-in">
-
-        <div class="timeline-time">
-
-          <div class="timeline-period">Months 9 to 12+</div>
-
-        </div>
-
-        <div class="timeline-dot"></div>
-
-        <div class="timeline-content">
-
-          <h3>Scale or Transition – Traction, Autonomy & Growth</h3>
-
-          <p>Once momentum is built, we help secure funding or consolidate the team's independence. Our role evolves — we remain as strategic advisors or transition to a board-level partner.</p>
-
-          <ul>
-
-            <li>Funding or strategic partnerships secured</li>
-
-            <li>Team reinforced for independence</li>
-
-            <li>Our role shifts to board-level partner or advisor</li>
-
-            <li>Long-term governance and strategy maintained</li>
-
-          </ul>
-
-          <div class="deliverables">
-
-            <strong>Deliverables:</strong> Revenue or capital raised, independent team, board engagement
-
+          <div class="roadmap-content">
+            <h3>🐈 Phase Lynx : Innovation Quantique</h3>
+            <p>Recherche & Développement intensif sur les QPUF (Quantum Physical Unclonable Functions) et QKD (Quantum Key Distribution). Partenariats stratégiques avec des laboratoires quantiques de pointe. Prototypes hybrides classique-quantique.</p>
           </div>
-
         </div>
 
+        <div class="roadmap-item fade-in">
+          <div class="roadmap-phase">
+            <span class="phase-badge">Phase 3 - Ours 🐻</span>
+            <span class="phase-years">2031-2035</span>
+          </div>
+          <div class="roadmap-content">
+            <h3>🐻 Phase Ours : Domination Quantique</h3>
+            <p>Déploiement de QPUF natifs exploitant les propriétés quantiques fondamentales. Horodatage quantique inviolable. Ambition : établir Quanthor comme standard mondial de cybermatérialité quantique pour les infrastructures critiques.</p>
+          </div>
+        </div>
       </div>
-
     </div>
+  </section>
 
-  </div>
+  <!-- TECHNOLOGIE ACTUELLE -->
+  <section id="tech" class="section section-white">
+    <div class="container">
+      <h2 class="section-title">Une Sécurité Quantum-Ready Déployable dès Aujourd'hui</h2>
+      <p class="section-subtitle">Performance, viabilité et maturité technologique</p>
 
-</section>
+      <div class="tech-grid">
+        <div class="tech-card fade-in">
+          <h3>Matériel Standard (COTS)</h3>
+          <ul>
+            <li>Architecture agnostique STM32/ARM</li>
+            <li>PUF SRAM intégré</li>
+            <li>Module compact 12×12mm</li>
+            <li>Poids ultra-léger &lt;3g</li>
+            <li>Compatible industriel</li>
+          </ul>
+        </div>
 
- 
+        <div class="tech-card fade-in">
+          <h3>Performance Crypto Prouvée</h3>
+          <ul>
+            <li>Standards NIST 2024 (Dilithium/Falcon)</li>
+            <li>Authentification &lt;10ms</li>
+            <li>Empreinte mémoire 2.4Ko</li>
+            <li>Signatures compactes</li>
+            <li>Optimisé embarqué</li>
+          </ul>
+        </div>
 
-<!-- CONTACT -->
-<section id="contact" class="thank-you">
-  <div class="container">
-    <h2>Contact</h2>
-    <p class="tagline">We're here to help you move forward.</p>
-
-    <div class="contact-info">
-
-      <div class="contact-item">
-        <div class="contact-icon">📍</div>
-        <span>2915 Ogletown Rd, Newark, DE 19713, United States</span>
+        <div class="tech-card fade-in">
+          <h3>Viabilité Industrielle</h3>
+          <ul>
+            <li>Coût PUF &lt;0.50 USD/unité</li>
+            <li>Consommation &lt;10mW</li>
+            <li>TRL 6-7 (maturité avancée)</li>
+            <li>Production scalable</li>
+            <li>Certification en cours</li>
+          </ul>
+        </div>
       </div>
-
-      <div class="contact-item">
-        <div class="contact-icon">📝</div>
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSesgUNHY1Y1Xvp-SfwfW-ceTrpxRBvWpFfpipSGzmhNk36SuA/viewform?usp=dialog" 
-           target="_blank"
-           style="color: var(--white); text-decoration: underline;">
-          Contact form (apply here)
-        </a>
-      </div>
-
     </div>
-  </div>
-</section>
+  </section>
 
+  <!-- MARCHÉS CIBLES -->
+  <section id="markets" class="section section-dark">
+    <div class="container">
+      <h2 class="section-title">Marchés Cibles</h2>
+      <p class="section-subtitle">Trois secteurs stratégiques pour un impact maximal</p>
 
-<section class="legal-section">
-  <div class="container legal-container">
+      <div class="markets-grid">
+        <div class="market-card fade-in">
+          <div class="market-icon">🛰️</div>
+          <h3>Aérospatial</h3>
+          <p>Satellites, sondes spatiales, vérification d'intégrité post-lancement. Garantir l'authenticité des systèmes en orbite et dans l'espace lointain.</p>
+        </div>
 
-    <h3>Legal Information</h3>
+        <div class="market-card fade-in">
+          <div class="market-icon">🎖️</div>
+          <h3>Défense</h3>
+          <p>Drones militaires, systèmes tactiques déconnectés, équipements de terrain. Sécurité souveraine pour les opérations critiques hors réseau.</p>
+        </div>
 
-    <p>McCann Perkins LLC — Registered in Delaware, United States.</p>
+        <div class="market-card fade-in">
+          <div class="market-icon">⚡</div>
+          <h3>Industrie Critique</h3>
+          <p>Infrastructures nucléaires, réseaux énergétiques, traçabilité des pièces critiques. Protection des actifs nationaux stratégiques.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <p>All content © McCann Perkins. Unauthorized reproduction prohibited.</p>
+  <!-- MODÈLE ÉCONOMIQUE -->
+  <section id="business" class="section section-light">
+    <div class="container">
+      <h2 class="section-title">Modèle Économique</h2>
+      <p class="section-subtitle">Trois sources de revenus complémentaires</p>
 
-  
+      <div class="business-grid">
+        <div class="business-card fade-in">
+          <h3>💾 Modules Hardware/Firmware</h3>
+          <p>Vente de modules physiques B2B et OEM. Prix cible &lt;10$ par unité pour volumes importants. Marges attractives et production scalable.</p>
+        </div>
 
-  </div>
-</section>
- 
+        <div class="business-card fade-in">
+          <h3>📜 Licences & IP</h3>
+          <p>Redevances sur l'intégration de la stack technologique Quanthor. Modèle de licensing flexible adapté aux besoins industriels et gouvernementaux.</p>
+        </div>
 
-<script>
+        <div class="business-card fade-in">
+          <h3>🔧 Services Premium</h3>
+          <p>Audit de sécurité, enrôlement de dispositifs, gestion de clés SaaS. Services à haute valeur ajoutée pour accompagner les déploiements critiques.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  // Header scroll effect
+  <!-- CAS D'USAGE -->
+  <section id="usecases" class="section section-white">
+    <div class="container">
+      <h2 class="section-title">Cas d'Usage</h2>
+      <p class="section-subtitle">Applications concrètes dans trois secteurs critiques</p>
 
-  window.addEventListener('scroll', () => {
+      <div class="usecase-section fade-in">
+        <div class="usecase-header">
+          <h3>🎖️ Défense - "Sécuriser la Suprématie Tactique"</h3>
+          <p>Intégrité des systèmes autonomes en environnement hostile</p>
+        </div>
+        <div class="usecase-content">
+          <div class="usecase-item">
+            <h4>Problème</h4>
+            <p>Risque de substitution de composants critiques, infiltration de spyware via la supply chain, compromission de drones et systèmes tactiques. La moindre faille peut coûter des vies et compromettre des missions.</p>
+          </div>
+          <div class="usecase-item">
+            <h4>Solution Quanthor</h4>
+            <p>Auto-vérification complète du drone en &lt;50ms avant chaque vol, entièrement hors-ligne. Détection immédiate de toute altération matérielle ou logicielle, sans dépendance à une infrastructure externe.</p>
+          </div>
+          <div class="usecase-item">
+            <h4>Économie</h4>
+            <p>Pour des flottes de 1000+ unités : licence annuelle par dispositif, module &lt;50$ protégeant un actif de 1M$+. ROI immédiat par la prévention de compromissions coûteuses.</p>
+          </div>
+        </div>
+      </div>
 
-    const header = document.getElementById('header');
+      <div class="usecase-section fade-in">
+        <div class="usecase-header">
+          <h3>✈️ Aéronautique - "Verrouiller la Supply Chain"</h3>
+          <p>Certification d'authenticité des pièces critiques</p>
+        </div>
+        <div class="usecase-content">
+          <div class="usecase-item">
+            <h4>Enjeu</h4>
+            <p>Milliards de dollars perdus chaque année en pièces non-certifiées. Un avion cloué au sol coûte &gt;100k$/jour. La contrefaçon menace la sécurité des passagers et la viabilité économique des compagnies.</p>
+          </div>
+          <div class="usecase-item">
+            <h4>Solution Quanthor</h4>
+            <p>Enrôlement de chaque pièce critique (PUF) dès la fabrication. Scan instantané via tablette lors de la maintenance. Traçabilité complète du berceau à la tombe, preuve d'authenticité infalsifiable.</p>
+          </div>
+          <div class="usecase-item">
+            <h4>Marché</h4>
+            <p>~300 pièces critiques par avion commercial × flotte mondiale. Potentiel de plusieurs millions de modules déployés. Réduction drastique des coûts d'immobilisation et des risques juridiques.</p>
+          </div>
+        </div>
+      </div>
 
-    if (window.scrollY > 50) {
+      <div class="usecase-section fade-in">
+        <div class="usecase-header">
+          <h3>⚡ Industrie Critique - "Sécuriser la Souveraineté Énergétique"</h3>
+          <p>Protection des infrastructures nucléaires et énergétiques</p>
+        </div>
+        <div class="usecase-content">
+          <div class="usecase-item">
+            <h4>Risque</h4>
+            <p>Contrefaçon de pièces dans les centrales nucléaires. Arrêt d'une tranche coûte &gt;1M USD/jour. Menace pour la souveraineté énergétique nationale et risques de sûreté majeurs.</p>
+          </div>
+          <div class="usecase-item">
+            <h4>Solution Quanthor</h4>
+            <p>ADN numérique PUF pour chaque composant stratégique. Audit instantané &lt;1s, entièrement hors-ligne. Conformité réglementaire automatique et traçabilité totale pour les autorités de sûreté.</p>
+          </div>
+          <div class="usecase-item">
+            <h4>Bénéfice</h4>
+            <p>Évitement des coûts d'arrêt massifs + conformité ISO 9001/ASME. Garantie de souveraineté pour les actifs critiques nationaux. Pérennité des infrastructures énergétiques stratégiques.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-      header.classList.add('scrolled');
+  <!-- ÉQUIPE -->
+  <section id="team" class="section section-dark">
+    <div class="container">
+      <h2 class="section-title">L'Équipe Quanthor</h2>
+      <p class="section-subtitle">Une convergence d'expertises uniques au service de la souveraineté numérique</p>
 
-    } else {
+      <div class="team-grid">
+        <div class="team-card fade-in">
+          <div class="team-avatar">CR</div>
+          <h3>Christophe Rodrigues</h3>
+          <p class="role">Chairman & Founder</p>
+          <p>Expert en innovation industrielle, spécialiste des technologies Quantiques, IA et HPC. Visionnaire technologique avec une expérience éprouvée dans les secteurs critiques.</p>
+        </div>
 
-      header.classList.remove('scrolled');
+        <div class="team-card fade-in">
+          <div class="team-avatar">GH</div>
+          <h3>Gaël Humbert</h3>
+          <p class="role">CEO</p>
+          <p>Spécialiste des écosystèmes d'innovation et de la souveraineté numérique. Leadership stratégique et capacité à construire des partenariats durables avec les acteurs institutionnels et industriels.</p>
+        </div>
 
-    }
+        <div class="team-card fade-in">
+          <div class="team-avatar">ML</div>
+          <h3>Marc Lijour</h3>
+          <p class="role">Chief Business Officer</p>
+          <p>15 ans d'expérience dans le scaling de startups Deeptech. Expert en stratégie commerciale, levée de fonds et expansion internationale dans les secteurs technologiques exigeants.</p>
+        </div>
 
-  });
+        <div class="team-card fade-in">
+          <div class="team-avatar">GH</div>
+          <h3>Gaël Humbert</h3>
+          <p class="role">Chief Product Officer</p>
+          <p>Architecte d'infrastructures sécurisées et systèmes d'automatisation. Expertise technique approfondie en sécurité embarquée et déploiement de solutions critiques à grande échelle.</p>
+        </div>
 
- 
+        <div class="team-card fade-in">
+          <div class="team-avatar">JM</div>
+          <h3>Joseph Mikael</h3>
+          <p class="role">Scientific Advisor</p>
+          <p>Chercheur en solutions quantiques et convergence IA-Quantique. Publications académiques de premier plan et expertise scientifique reconnue internationalement.</p>
+        </div>
 
-  // Intersection Observer for fade-in animations
+        <div class="team-card fade-in">
+          <div class="team-avatar">GP</div>
+          <h3>Guillaume Pellerin</h3>
+          <p class="role">Partnership Advisor</p>
+          <p>Expert en diplomatie d'affaires et navigation d'écosystèmes complexes. Réseau étendu dans les secteurs gouvernementaux, industriels et académiques au niveau international.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  const observerOptions = {
+  <!-- CONTACT -->
+  <section id="contact" class="contact-section">
+    <div class="container">
+      <p class="contact-conclusion">"Pourquoi Quanthor ? Parce que nous apportons l'Autorité de la preuve physique dans l'ère Quantique"</p>
 
-    threshold: 0.1,
+      <div class="contact-info">
+        <div class="contact-item">
+          <strong>17242280 Canada Inc</strong>
+        </div>
+        <div class="contact-item">
+          📍 1820 Rue Galt O, Sherbrooke (Québec) J1K1H9 Canada
+        </div>
+        <div class="contact-item">
+          🇨🇦 Entreprise canadienne fière de contribuer à la souveraineté technologique
+        </div>
+      </div>
+    </div>
+  </section>
 
-    rootMargin: '0px 0px -50px 0px'
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Quanthor - 17242280 Canada Inc. Tous droits réservés.</p>
+      <p style="margin-top: 0.5rem; opacity: 0.7;">Cybermatérialité & Résilience Post-Quantique</p>
+    </div>
+  </footer>
 
-  };
-
- 
-
-  const observer = new IntersectionObserver((entries) => {
-
-    entries.forEach(entry => {
-
-      if (entry.isIntersecting) {
-
-        entry.target.classList.add('visible');
-
+  <script>
+    // Header scroll effect
+    window.addEventListener('scroll', () => {
+      const header = document.getElementById('header');
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
       }
-
     });
 
-  }, observerOptions);
+    // Intersection Observer for fade-in animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
 
- 
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, observerOptions);
 
-  document.querySelectorAll('.fade-in').forEach(el => {
+    document.querySelectorAll('.fade-in').forEach(el => {
+      observer.observe(el);
+    });
 
-    observer.observe(el);
+    // Mobile menu toggle (basic implementation)
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.querySelector('.nav-links');
 
-  });
-
-</script>
-
- <footer class="site-footer">
-  <div class="footer-inner">
-    <span>© McCann Perkins. All rights reserved.</span>
-    <a href="#legal" class="footer-legal">Legal notices</a>
-  </div>
-</footer>
-
+    menuToggle.addEventListener('click', () => {
+      navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+    });
+  </script>
 </body>
-
 </html>
-
- 
